@@ -4,6 +4,7 @@
 
             "image": "https://cdn.pixabay.com/photo/2018/08/10/15/43/woman-3597095_1280.jpg",
             "title": "Complete Python - From Zero to Hero in Python",
+            "summary": "Learn Python from Beginner to Expert by building applications",
             "description": "This course will take you from beginner to expert in Python, easily and smartly. We've crafted every piece of content to be concise and straightforward, while never leaving you confused. This course will dive right into Python and get you productive from the very beginning. Why Learn Python? Over the last few years, Python has become more and more popular. Demand for Python is booming in the job market and it is a skill that can help you enter some of the most exciting industries, including data science, web applications, home automation and many more. Python is one of the most desired programming languages according to recent industry surveys. If people are not using Python already, they want to start using Python. This course is for individuals who who have never programmed before, for programmers with experience in other languages who want to kickstart their Python programming.",
             "author": "John Doe",
             "category": "Programming",
@@ -16,6 +17,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2020/07/11/22/57/business-meeting-5395567_1280.jpg",
             "title": "Learn Business English",
+            "summary": "Learn essential Business English for professional communication at work, in meetings, interviews, negotiations, phone calls, e-mails",
             "description": "In Learn Business English, you get much more than just the words about marketing and sales. You do get those, but you will also practice interview techniques, negotiating, what to say in a meeting, phone conversations, emails, and more. Just as one learns business from experience, you also learn Business English Language from experience. That's why this Business English course has been designed to be very practical. You practice English speaking just as you would in real life. This course is for English learners who need to communicate in the English language in a business setting, who need to recruit employees in the English language, who need to negotiate in the English language, who need to write business e-mails in the English language, who need to take phone calls in the English language",
             "author": "Jane White",
             "category": "Languages",
@@ -28,6 +30,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2015/05/28/14/38/ux-787980_1280.jpg",
             "title": "UX Design Fundamentals",
+            "summary": "Understand User Experience (UX) Design to begin designing web and mobile apps to keep your users engaged",
             "description": "This course will help you stand out as a web designer, teaching you how to apply User Experience (UX) strategies that will make every site you build useful, usable, and valuable. Reinforce what you're learning using the bonus 30-page downloadable UX Guidebook. Filled with exercises and activities, the UX Guidebook is a great tool to reference as you progress through the course, or while developing your own custom sites. You'll also get hands-on experience designing and coding three different types of sites. This will give you the confidence to pursue similar projects if you're already a website designer, if you want to get into web design, or if you want to enhance your current business site. This course is for beginners who want to learn UX, web design and/or development, website designers who want to enhance their skills, print designers who want to move into web design",
             "author": "Adam Smith",
             "category": "Graphic Design",
@@ -40,6 +43,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2019/03/12/20/27/kanban-4051777_1280.jpg",
             "title": "Agile Fundamentals: Including Scrum and Kanban",
+            "summary": "Master Agile principles, values and approaches to help organisations make faster changes with less expense",
             "description": "Make yourself a more valuable member of the team by learning how to help organizations make changes faster and with less expense by using Agile approaches. And with over 70% of companies using Agile for their projects, not knowing the fundamental concepts, principles, and values just isn’t an option anymore. This course will not only teach you the fundamentals of Agile to help you develop the adaptive mindset, but it will also break down the most popular Agile frameworks such as Scrum, Kanban, and Scrumban. Taught with practicality and authenticity in mind, this to-the-point course brings you real-life work examples (both failures and successes) to make your learning stick. This course is for those interested in working within an Agile team - such as aspiring Business Analysts, Project Managers, Product Owners, Scrum Masters, Developers, Quality Assurance, and similar.",
             "author": "John O'Brien",
             "category": "Business",
@@ -52,6 +56,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg",
             "title": "Artificial Intelligence A-Z: Learn How To Build An AI",
+            "summary": "Combine the power of Data Science, Machine Learning and Deep Learning to create powerful AI for Real-World",
             "description": "Learn key AI concepts and intuition training to get you quickly up to speed with all things AI. The couse covers the following: building AI with no previous coding experience using Python, mergin AI with OpenAI Gym to learn as effectively as possible, optimizing your AI to reach its maximum potential in the real world. You will learn to code self-improving AI for a range of purposes. In fact, we code together with you. Every tutorial starts with a blank page and we write up the code from scratch. This way you can follow along and understand exactly how the code comes together and what each line means. Plus, you’ll get downloadable Python code templates for every AI you build in the course. This course is for anyone interested in Artificial Intelligence, Machine Learning or Deep Learning.",
             "author": "Thomas Anderson",
             "category": "Programming",
@@ -64,6 +69,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2010/12/13/10/19/signage-2653_1280.jpg",
             "title": "IELTS Band 7 + Complete Prep Course",
+            "summary": "IELTS preparation for all sections of the Academic and General IELTS Exam",
             "description": "This course covers the Academic and General IELTS Exams (Syllabus in Section 1). You can receive winning advice and tactics for both the General and Academic by taking this course. Note: This course teaches both the General and Academic completely, so it is not as long as it appears. Just follow the Syllabus in Section 1 for your exam. Our strategies are practical and according to our students actually work on the real exam. We have helped thousands of students achieve scores of Band 7-9, jumping from Band 6 to Band 7.5 and Band 6.5 to 8 or 9. We have more than 20 Assignments that you can complete to test your knowledge. This course is for individuals who need USA, UK, AU, or Canadian University admission should take this course, who need IELTS English for job certification, who need IELTS English for immigration purposes should take this course",
             "author": "Christopher McDonald",
             "category": "Languages",
@@ -76,6 +82,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2016/11/19/22/32/css3-1841488_1280.jpg",
             "title": "CSS - The Complete Guide into Flexbox, Grid & Sass",
+            "summary": "Learn the most advanced and latest features of CSS and master Flexbox, CSS Grid, responsive design and much more",
             "description": "This course offers the theory and practical examples - we'll build an entire real course project throughout the course - but there also are multiple assignments, quizzes and challenges for you to practice individual concepts taught throughout the course. Talking about the course project - we'll build the frontend (no backend) of a fictional web hosting company. We'll have a starting screen which has different sections, we got a responsive design with an animated side-drawer, we got modals and forms and in general we got a lot of CSS animations, font styles and more! This course is for anyone who knows CSS but wants to dive deeper to learn about the latest CSS features like Flexbox, CSS Grid or CSS Variables",
             "author": "Lauren Black",
             "category": "Graphic Design",
@@ -88,6 +95,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2017/04/06/15/02/hand-2208491_1280.jpg",
             "title": "Management Consulting Approach to Problem Solving",
+            "summary": "Practical guide with case studies and real life examples how to make better decisions using McKinsey, BCG, Bain tricks",
             "description": "This course will help you drastically improve your skills in solving problems using management consulting tools, techniques, and frameworks. In this course, we will mainly concentrate on solving real-life problems like goal settings and defining what and when to do, estimating the cost of a wedding, losing weight and getting in shape, deciding whether to do an MBA or not, choosing the right boyfriend/girlfriend, deciding whether you should buy a car or not, deciding when to retire and many more. If you have a specific problem just let me know and I will give you tips on how to solve it using the tools presented in this course. This course is for individuals interested in making better decisions based on data, students considering becoming management consultants",
             "author": "Samantha Whittaker",
             "category": "Business",
@@ -100,6 +108,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2017/07/31/14/45/code-2558224_1280.jpg",
             "title": "React and Typescript: Build a Portfolio Project",
+            "summary": "Expand your portfolio of projects by building a complex app with the latest web technologies",
             "description": "Kick off your learning experience with an introduction on how to use React and Typescript together. Not familiar with Typescript? No problem! A lightning fast - but comprehensive - tutorial is included! Once you're ready with React and Typescript, you'll dive into our big project. You are going to build an interactive browser-based coding environment. It's like a Jupyter Notebook, but for Javascript, with many additional features added in. Yes, this is what you are going to build in this course! You will solve incredible challenges around bundling and transpiling code directly in the browser. During this entire project, I will show you a variety of different solutions to an incredible number of problems. I will show you step-by-step how to solve each problem. You will also see many concerns around performance and security addressed. At the end of the course, you will have an amazing portfolio project with excellent looks and functionality. The course is for engineers looking to expand their project portfolio.",
             "author": "Amanda Thompson",
             "category": "Programming",
@@ -112,6 +121,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2017/11/30/02/47/waterfalls-2987477_1280.jpg",
             "title": "Ultimate Adobe Photoshop Training: From Beginner to Pro",
+            "summary": "Learn the essential tools of Adobe Photoshop CC to jump right in and design beautiful graphics and photos in Photoshop",
             "description": "This is the ultimate Photoshop training course that will take you from absolute beginner to proficient Photoshop user in no time at all. We'll focus on real world cases and I present the best techniques that require minimal effort yet produce maximum results. All my content is focused on getting the job done in the least amount of time possible. I'll be using the latest version of the program - Photoshop CC 2021, but all the content is explained for all users, no matter what version you have installed. By the end of this course you will be able to use the program with ease. You'll feel in control as you pursue and complete more ambitious projects. Whether you are contemplating a career change, considering freelancing opportunities, or developing a personal hobby, get started today on your Photoshop journey! This course is perfect for beginner-level Photoshop users.",
             "author": "Jackob Lang",
             "category": "Graphic Design",
@@ -124,6 +134,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2019/08/19/15/13/eiffel-tower-4416700_1280.jpg",
             "title": "3 Minute French - Course 1 | Language lessons for beginners",
+            "summary": "Learn to speak French you can use in everyday real-world situations - all in just 3-minute chunks",
             "description": "My name is Victoria Turner and I’ve been teaching foreign languages in my hometown for over fifteen years. I love languages, I love learning and I love teaching. I also love chocolate, but this isn’t really the place to discuss my chocoholism! I created 3 Minute French as a way to make learning French easier than ever before and accessible to anybody, especially people who have tried and failed in the past. My course is perfect for the complete beginner as I break down the French language into tiny chunks that I show you how to build back together again in a logical, simple to understand way. You can go from knowing no French at all to putting together your own sentences in just a few minutes. Watch the free preview lessons below and you’ll see what I mean. This course is for individuals who want to learn to speak French in a very simple and very quick way, who are going to spend a holiday/vacation in France or another French speaking country, who have no experience with French, but you would like to learn fast",
             "author": "Victoria Turner",
             "category": "Languages",
@@ -136,6 +147,7 @@
         {
             "image": "https://cdn.pixabay.com/photo/2017/01/14/10/56/men-1979261_1280.jpg",
             "title": "The Complete Communication Skills Master Class for Life",
+            "summary": "Learn communication skills to master the secrets of persuasion, influence and assertiveness for business and life",
             "description": "This course is designed to be a one stop shop for all your communication skills training needs. This course covers a vast array of communication needs and scenarios, from how to communicate during a job interview, pitching investors, asking for a raise, speaking one on one or to large groups. And it covers how to speak to big corporations when you have a problem with service, plus public speaking for kids, how to deliver a wedding speech and even a eulogy. You will also become a master of persuasion, assertiveness and all aspects of business communication. Your leadership abilities will expand dramatically as your social skills grow to allow you to communicate effectively in every situation. This course is for individuals who want to be outstanding communicators in their busienss and personal lives",
             "author": "Alex Morgan",
             "category": "Business",
