@@ -17,7 +17,7 @@ const Home = () => {
     return ( 
         <>
             { isPending && <p>Loading...</p> }
-            { courses && <CourseList courses={courses} /> }
+            { courses && <CourseList courses={courses} title="Our Courses" /> }
         </>
      );
 }
