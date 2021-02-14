@@ -1,8 +1,8 @@
-
+import CourseList from "../courses/CourseList";
 
 const Home = () => {
     return ( 
-        null
+        <CourseList />
      );
 }
  
