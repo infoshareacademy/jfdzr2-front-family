@@ -2,7 +2,7 @@ const CourseList = ({ courses, title }) => {
     return ( 
         <div className="course__list">
             <h2>{ title }</h2>
-            {courses.map(course => {
+            {courses.map(course => (
                 <div className="course__tile" key={course.id}>
                     <div className="course__image">
                         <img src={ course.image }/>
@@ -22,7 +22,7 @@ const CourseList = ({ courses, title }) => {
                         <p>{ course.price } PLN</p>
                     </div>
                 </div>
-            })}
+            ))}
         </div>
      );
 }
