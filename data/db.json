@@ -48,7 +48,7 @@
             "author": "John O'Brien",
             "category": "Business",
             "level": "Beginner",
-            "duration": "19.5h",
+            "duration": 19.5,
             "rating": 2.5,
             "price": 12.99,
             "id": 4
@@ -113,7 +113,7 @@
             "author": "Amanda Thompson",
             "category": "Programming",
             "level": "Intermediate",
-            "duration": "19.5h",
+            "duration": 19.5,
             "rating": 4.0,
             "price": 35.99,
             "id": 9
@@ -126,7 +126,7 @@
             "author": "Jackob Lang",
             "category": "Graphic Design",
             "level": "Beginner",
-            "duration": "19.5h",
+            "duration": 19.5,
             "rating": 15,
             "price": 34.99,
             "id": 10
