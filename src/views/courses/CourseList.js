@@ -19,7 +19,7 @@ const CourseList = ({ courses, title }) => {
                     </div>
                     <div className="course__info">
                         <h3>{ course.title }</h3>
-                        <p>{ course.summary }</p>
+                        <p className="course__info__summary">{ course.summary }</p>
                         <p className="course__info__category"><VscFolderOpened /> { course.category }</p>
                         <p className="course__info__author">by { course.author }</p>
                         <p className="course__info__rating">{ course.rating } <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStar/></p>
