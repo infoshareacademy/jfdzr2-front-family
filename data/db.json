@@ -11,7 +11,7 @@
             "level": "Beginner",
             "duration": 10,
             "rating": 4.8,
-            "price": 24.99,
+            "price": "Free",
             "id": 1
         },
         {
@@ -23,8 +23,8 @@
             "category": "Languages",
             "level": "Expert",
             "duration": 4,
-            "rating": 3.8,
-            "price": 15.99,
+            "rating": 3.6,
+            "price": "15.99 PLN",
             "id": 2
         },
         {
@@ -37,7 +37,7 @@
             "level": "Beginner",
             "duration": 12,
             "rating": 4.9,
-            "price": 16.99,
+            "price": "16.99 PLN",
             "id": 3
         },
         {
@@ -49,8 +49,8 @@
             "category": "Business",
             "level": "Beginner",
             "duration": 19.5,
-            "rating": 2.5,
-            "price": 12.99,
+            "rating": 3.5,
+            "price": "12.99 PLN",
             "id": 4
         },
         {
@@ -63,7 +63,7 @@
             "level": "Intermediate",
             "duration": 14.5,
             "rating": 4.4,
-            "price": 24.99,
+            "price": "24.99 PLN",
             "id": 5
         },
         {
@@ -76,7 +76,7 @@
             "level": "Intermediate",
             "duration": 36,
             "rating": 3.4,
-            "price": 15.99,
+            "price": "15.99 PLN",
             "id": 6
         },
         {
@@ -89,7 +89,7 @@
             "level": "Intermediate",
             "duration": 21.5,
             "rating": 3.1,
-            "price": 18.99,
+            "price": "18.99 PLN",
             "id": 7
         },
         {
@@ -102,7 +102,7 @@
             "level": "Expert",
             "duration": 7,
             "rating": 3.5,
-            "price": 15.99,
+            "price": "Free",
             "id": 8
         },
         {
@@ -114,8 +114,8 @@
             "category": "Programming",
             "level": "Intermediate",
             "duration": 19.5,
-            "rating": 4.0,
-            "price": 35.99,
+            "rating": 4.2,
+            "price": "35.99 PLN",
             "id": 9
         },
         {
@@ -127,8 +127,8 @@
             "category": "Graphic Design",
             "level": "Beginner",
             "duration": 19.5,
-            "rating": 15,
-            "price": 34.99,
+            "rating": 4.5,
+            "price": "34.99 PLN",
             "id": 10
         },
         {
@@ -141,7 +141,7 @@
             "level": "Beginner",
             "duration": 5.5,
             "rating": 3.5,
-            "price": 11.99,
+            "price": "Free",
             "id": 11
         },
         {
@@ -154,7 +154,7 @@
             "level": "Intermediate",
             "duration": 31,
             "rating": 4.3,
-            "price": 29.99,
+            "price": "29.99 PLN",
             "id": 12
         }
     ]
