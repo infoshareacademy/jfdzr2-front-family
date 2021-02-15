@@ -19,7 +19,7 @@
 
 .course__image img {
     width: 300px;
-    height: 250px;
+    min-height: 100%;
     object-fit: cover;
 }
 
@@ -50,3 +50,33 @@
     font-size: 14px;
 }
 
+@media screen and (max-width: 794px) {
+    .course__image img {
+        width: 180px; 
+        height: 150px;
+        min-height: initial;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .course__info__summary {
+        display: none;
+    }
+
+    .course__image img {
+        width: 150px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .course__tile {
+        flex-direction: column;
+    }
+
+    .course__image img {
+        min-width: 100%;
+        min-height: 200px;
+    }
+}
