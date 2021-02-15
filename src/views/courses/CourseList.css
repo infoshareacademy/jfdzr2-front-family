@@ -1,0 +1,52 @@
+.course__list h2 {
+    margin: 15px 20px;
+}
+.course__tile, .course__info__time__and__level {
+    display: flex;
+}
+
+.course__tile {
+    max-width: 900px;
+    margin: 20px;
+    background-color: rgb(252, 252, 252);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.course__tile:hover {
+    box-shadow: 0 0 8px grey;
+}
+
+.course__image img {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.course__info, .course__info__price p {
+    padding: 20px;
+}
+
+.course__info h3, .course__info p {
+    padding-bottom: 8px;
+}
+
+.course__info__time__and__level p {
+    margin-right: 25px;
+}
+
+.course__info__rating {
+    color: orange;
+    font-weight: bold;
+}
+
+.course__info__price p {
+    text-align: end;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.course__info__author, .course__info__category, .course__info__time__and__level {
+    font-size: 14px;
+}
+
