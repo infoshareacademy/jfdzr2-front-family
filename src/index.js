@@ -4,6 +4,16 @@ import './reset.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from 'firebase';
+
+firebase.initializeApp({
+    apiKey: "AIzaSyCprGadwK9Gqzd5P4_kllO7WCp4TwOE6cg",
+    authDomain: "e-commerce-app-51342.firebaseapp.com",
+    projectId: "e-commerce-app-51342",
+    storageBucket: "e-commerce-app-51342.appspot.com",
+    messagingSenderId: "862294770819",
+    appId: "1:862294770819:web:a80a4cbe6f358bd70b47b6"
+})
 
 ReactDOM.render(
   <React.StrictMode>
