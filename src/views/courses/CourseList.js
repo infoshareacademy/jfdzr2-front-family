@@ -1,12 +1,8 @@
 import "./CourseList.css";
 import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
-import { BsStarFill } from 'react-icons/bs';
-import { BsStarHalf } from "react-icons/bs";
-import { BsStar } from "react-icons/bs";
+import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
-
-
 
 const CourseList = ({ courses, title }) => {
     return ( 
