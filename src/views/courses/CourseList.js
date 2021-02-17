@@ -11,7 +11,7 @@ const CourseList = ({ courses, title }) => {
             {courses.map(course => (
                 <div className="course__tile" key={course.id}>
                     <div className="course__image">
-                        <img src={ course.image }/>
+                        <img src={ course.image } alt="course image" />
                     </div>
                     <div className="course__info">
                         <h3>{ course.title }</h3>
