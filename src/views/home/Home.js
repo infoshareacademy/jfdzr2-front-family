@@ -7,7 +7,7 @@ const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/courses')
+        fetch('https://e-commerce-app-51342-default-rtdb.europe-west1.firebasedatabase.app/courses.json')
             .then(res => {
                 if (res.status !== 200) {
                     throw Error('Failed to fetch the data for that resource :(')
@@ -16,7 +16,8 @@ const Home = () => {
                 }
             })
             .then(data => {
-                setCourses(data);
+                const formattedData = Object.keys(data).map(key => ({ id: key, ...data[key]}));
+                setCourses(formattedData);
                 setIsPending(false);
                 setError(null);
             })
