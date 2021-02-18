@@ -4,11 +4,13 @@ import './reset.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 
 firebase.initializeApp({
     apiKey: "AIzaSyCprGadwK9Gqzd5P4_kllO7WCp4TwOE6cg",
     authDomain: "e-commerce-app-51342.firebaseapp.com",
+    databaseURL: "https://e-commerce-app-51342-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "e-commerce-app-51342",
     storageBucket: "e-commerce-app-51342.appspot.com",
     messagingSenderId: "862294770819",
