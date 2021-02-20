@@ -1,5 +1,6 @@
 import CourseList from "../courses/CourseList";
 import { useEffect, useState } from "react";
+import { DATABASE_URL } from "../../firebase-config";
 
 const Home = () => {
     const [courses, setCourses] = useState(null);
@@ -7,7 +8,7 @@ const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('https://e-commerce-app-51342-default-rtdb.europe-west1.firebasedatabase.app/courses.json')
+        fetch(`${DATABASE_URL}/courses.json`)
             .then(res => {
                 if (res.status !== 200) {
                     throw Error('Failed to fetch the data for that resource :(')
@@ -29,7 +30,7 @@ const Home = () => {
 
     return ( 
         <>
-            { error && <p>Failed to fetch the data for that resource :( </p> }
+            { error && <p>{ error }</p> }
             { isPending && <p>Loading...</p> }
             { courses && <CourseList courses={courses} title="Our Courses" /> }
         </>
