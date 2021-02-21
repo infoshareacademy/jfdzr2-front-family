@@ -1,14 +1,16 @@
+import { NavLink } from 'react-router-dom';
+
 import "./Navigation.css";
 
 export const Navigation = () => {
   return <nav className="header__nav">
     <div>
-      <a href="#">Future Skills</a>
+      <NavLink to="/">Future Skills</NavLink>
     </div>
     <div>
-      <a href="#">Log in</a>
-      <a href="#">Sign up</a>
-      <a href="#">Cart</a>
+      <NavLink to="/">Log in</NavLink>
+      <NavLink to="/">Sign up</NavLink>
+      <NavLink to="/">Cart</NavLink>
     </div>
   </nav>
 }
