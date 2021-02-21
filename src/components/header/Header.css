@@ -2,6 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: url("") no-repeat center / cover;
-  background-color: #011627;
+  height: 40vh;
+  background: #011627 url("") no-repeat center / cover;
 }
