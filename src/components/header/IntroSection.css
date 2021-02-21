@@ -7,12 +7,34 @@
 .header__section h1{
   color: #2ec4b6;
   font-weight: 500;
-  font-size: 68px;
+  font-size: 48px;
 }
 
 .header__section h2{
   color: #fdfffc;
   font-weight: 300;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@media (min-width: 600px){
+  .header__section h1{
+    font-size: 58px;
+  }
+  
+  .header__section h2{
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media (min-width: 794px){
+  .header__section h1{
+    font-size: 68px;
+  }
+  
+  .header__section h2{
+    font-size: 22px;
+    line-height: 32px;
+  }
 }
