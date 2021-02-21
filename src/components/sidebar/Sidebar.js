@@ -1,3 +1,4 @@
+import React from "react";
 import "./Sidebar.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
@@ -5,13 +6,14 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import FilterListIcon from "@material-ui/icons/FilterList";
+
 import RadioButtons from "./RadioButtons";
 import CheckboxesTopic from "./CheckboxesTopic";
 import CheckboxesLevel from "./CheckboxesLevel";
 import CheckboxesPrice from "./CheckboxesPrice";
 import CheckboxesDuration from "./CheckboxesDuration";
 import Button from "@material-ui/core/Button";
+import Filter from "./Filter"
 
 
 
@@ -30,11 +32,7 @@ export default function SimpleAccordion() {
 
   return (
     <div className={classes.root}>
-      <Button
-        startIcon={<FilterListIcon />}
-      >
-        Filter
-      </Button>
+<Filter/>
       <Accordion
         style={{
           boxShadow: "none",
