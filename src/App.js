@@ -1,16 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { Header } from "./components/header/Header";
 import SimpleAccordion from './components/sidebar/Sidebar'
-
 
 function App() {
   return (
-  
-      <SimpleAccordion />
-     
-       
-  
-  )
+    <>
+    <Header />
+    <SimpleAccordion />
+    </>
+  );
 }
 
 export default App;

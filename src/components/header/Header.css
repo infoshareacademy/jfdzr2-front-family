@@ -1,0 +1,14 @@
+.app__header{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 40vh;
+  background: #011627 url("") no-repeat center / cover;
+}
+
+@media (min-width: 600px){
+  .app__header{
+    min-height: 50vh;
+  }
+}
