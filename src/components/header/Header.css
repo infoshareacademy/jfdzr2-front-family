@@ -5,3 +5,9 @@
   height: 40vh;
   background: #011627 url("") no-repeat center / cover;
 }
+
+@media (min-width: 600px){
+  .app__header{
+    height: 50vh;
+  }
+}
