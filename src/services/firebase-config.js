@@ -1,4 +1,8 @@
-export const firebaseConfig = {
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+const firebaseConfig = {
     apiKey: "AIzaSyCprGadwK9Gqzd5P4_kllO7WCp4TwOE6cg",
     authDomain: "e-commerce-app-51342.firebaseapp.com",
     databaseURL: "https://e-commerce-app-51342-default-rtdb.europe-west1.firebasedatabase.app/",
@@ -8,4 +12,7 @@ export const firebaseConfig = {
     appId: "1:862294770819:web:a80a4cbe6f358bd70b47b6"
 }
 
-export const DATABASE_URL = firebaseConfig.databaseURL
+firebase.initializeApp(firebaseConfig);
+
+export const db = firebase.firestore();
+export const auth = firebase.auth();
