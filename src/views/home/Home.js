@@ -1,6 +1,6 @@
 import CourseList from "../courses/CourseList";
 import { useEffect, useState } from "react";
-import { db } from '../../firebase-config';
+import { db } from '../../services/firebase-config';
 
 const Home = () => {
     const [courses, setCourses] = useState(null);
