@@ -1,6 +1,8 @@
 import CourseList from "../courses/CourseList";
 import { useEffect, useState } from "react";
 import { db } from '../../services/firebase-config';
+import SimpleAccordion from "../../components/sidebar/Sidebar";
+import "./Home.css";
 
 const Home = () => {
     const [courses, setCourses] = useState(null);
@@ -15,10 +17,11 @@ const Home = () => {
     }, []);
 
     return ( 
-        <>
+        <div className="home__wrapper">
+            <SimpleAccordion />
             { isPending && <p>Loading...</p> }
             { courses && <CourseList courses={courses} title="Our Courses" /> }
-        </>
+        </div>
      );
 }
  
