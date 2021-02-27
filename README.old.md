@@ -1,1 +1,0 @@
-# jfdzr2-front-family
