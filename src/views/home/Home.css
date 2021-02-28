@@ -1,0 +1,11 @@
+.home__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 545px) {
+    .home__wrapper {
+        flex-direction: column;
+    }
+}

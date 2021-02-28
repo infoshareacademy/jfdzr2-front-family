@@ -4,14 +4,14 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import "./Footer.css";
 import { Typography } from "@material-ui/core";
-import 'fontsource-roboto';
 
-export default function Footer() {
+
+export const Footer = () => {
  return (
    <footer style={{ backgroundColor: "#011627", color: "#FDFFFC" }}>
-     <div className="logoFooter">LOGO Future Skills</div>
+     <div className="logoFooter">Future Skills</div>
  
-     <div className="columnsFooter" style={{ display: "flex", justifyContent: "center", gap: "90px" }}>
+     <div className="columnsFooter">
        <div className="leftColumnFooter" >
        <Typography>Social Media</Typography>
          <div className="socialMEdiaIcons">

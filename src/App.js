@@ -1,17 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import SimpleAccordion from './components/sidebar/Sidebar'
-import Footer from './components/footer/Footer'
-import 'fontsource-roboto';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from '../src/views/home/Home';
+import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
-  <>
-      <SimpleAccordion />
-      <Footer />
-  </>   
-       
-  
+      <Router>
+        <Route>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+          <Footer />
+        </Route>
+      </Router>
   )
 }
 
