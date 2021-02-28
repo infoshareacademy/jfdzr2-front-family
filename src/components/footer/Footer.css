@@ -1,0 +1,39 @@
+*{
+    font-family: Roboto;
+    
+}
+
+.socialMEdiaIcons{
+    padding-top: 7px;
+    gap: 45px;
+
+}
+
+.aboutUsList {
+    padding-top: 7px;
+    list-style: none;
+    color: white;
+
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    line-height: 1.3;
+}
+
+a:hover {
+    color: orange;
+}
+
+.copyright {
+text-align: right;
+font-size: 12px;
+padding-right: 10%;
+padding-bottom: 10px;;
+}
+
+.logoFooter {
+    padding-left: 10%;
+    padding-top: 10px;
+}
