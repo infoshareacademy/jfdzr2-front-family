@@ -10,28 +10,31 @@ export const Footer = () => {
  return (
    <footer style={{ backgroundColor: "#011627", color: "#FDFFFC" }}>
      <div className="logoFooter">Future Skills</div>
- 
+
      <div className="columnsFooter">
-       <div className="leftColumnFooter" >
-       <Typography>Social Media</Typography>
+       <div className="leftColumnFooter">
+         <Typography>Social Media</Typography>
          <div className="socialMEdiaIcons">
-           <FacebookIcon className="socialIcon"/>
-           <TwitterIcon className="socialIcon"/>
-           <InstagramIcon className="socialIcon"/>
-           <LinkedInIcon className="socialIcon"/>
+           <FacebookIcon className="socialIcon" />
+           <TwitterIcon className="socialIcon" />
+           <InstagramIcon className="socialIcon" />
+           <LinkedInIcon className="socialIcon" />
          </div>
        </div>
- 
-       
+
        <div className="rightColumnFooter">
          <Typography>Company</Typography>
          <nav>
            <ul className="aboutUsListFooter">
              <li>
-               <a className="linkFooter" href="">About us</a>
+               <a className="linkFooter" href="">
+                 About us
+               </a>
              </li>
              <li>
-               <a className="linkFooter" href="">Contact us</a>
+               <a className="linkFooter" href="">
+                 Contact us
+               </a>
              </li>
            </ul>
          </nav>
