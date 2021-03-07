@@ -15,10 +15,10 @@ export const Footer = () => {
        <div className="leftColumnFooter" >
        <Typography>Social Media</Typography>
          <div className="socialMEdiaIcons">
-           <FacebookIcon />
-           <TwitterIcon />
-           <InstagramIcon />
-           <LinkedInIcon />
+           <FacebookIcon className="socialIcon"/>
+           <TwitterIcon className="socialIcon"/>
+           <InstagramIcon className="socialIcon"/>
+           <LinkedInIcon className="socialIcon"/>
          </div>
        </div>
  
@@ -26,12 +26,12 @@ export const Footer = () => {
        <div className="rightColumnFooter">
          <Typography>Company</Typography>
          <nav>
-           <ul className="aboutUsList">
+           <ul className="aboutUsListFooter">
              <li>
-               <a href="">About us</a>
+               <a className="linkFooter" href="">About us</a>
              </li>
              <li>
-               <a href="">Contact us</a>
+               <a className="linkFooter" href="">Contact us</a>
              </li>
            </ul>
          </nav>
