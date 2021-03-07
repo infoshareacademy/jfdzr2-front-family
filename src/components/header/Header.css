@@ -4,11 +4,28 @@
   justify-content: flex-end;
   width: 100%;
   min-height: 40vh;
-  background: #011627 url("") no-repeat center / cover;
+  background-color: #011627;
+  background-image:
+  linear-gradient(135deg, rgba(255, 159, 28, 0.005), rgba(1, 22, 39, 0.7), rgba(1, 22, 39, 0.8)),
+  url("../../assets/img/banner_640.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 600px){
   .app__header{
     min-height: 50vh;
+    background-image:
+    linear-gradient(135deg, rgba(255, 159, 28, 0.005), rgba(1, 22, 39, 0.7), rgba(1, 22, 39, 0.8)),
+    url("../../assets/img/banner_1280.jpg");
+  }
+}
+
+@media (min-width: 794px){
+  .app__header{
+    background-image:
+    linear-gradient(135deg, rgba(255, 159, 28, 0.005), rgba(1, 22, 39, 0.7), rgba(1, 22, 39, 0.8)),
+    url("../../assets/img/banner_1920.jpg");
   }
 }
