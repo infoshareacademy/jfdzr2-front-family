@@ -4,7 +4,7 @@ import Home from '../src/views/home/Home';
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { SearchBar } from "./components/searchbar/SearchBar";
-import { Navigation } from "./components/header/Navigation";
+import { CourseDetails } from './views/course-details/CourseDetails';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <SearchBar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/course-details" component={CourseDetails} />
           </Switch>
           <Footer />
         </Route>
