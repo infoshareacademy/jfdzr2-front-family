@@ -9,15 +9,15 @@ export const CourseDetails = () => {
     <section className="course__details">
       <div className="course__details__top__wrapper">
         <div className="course__details__info__wrapper">
-          <h3 className="course__details__name">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
+          <h3 className="course__details__name">3 Minute French - Course 1 | Language Lessons for Beginners</h3>
           <div className="course__details__info">
             <div className="course__details__info--left">
-              <p className="course__details__info__category"><VscFolderOpened />Category</p>
-              <p className="course__details__info__author">by Jane Doe</p>
+              <p className="course__details__info__category"><VscFolderOpened /> Category</p>
+              <p className="course__details__info__author"> by Jane Doe</p>
               <p className="course__details__info__rating"><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStar/></p>
               <div className="course__details__info__hours__and__level">
-                <p><GoCalendar />Duration</p>
-                <p><GrSteps />Level</p>
+                <p><GoCalendar /> Duration</p>
+                <p><GrSteps /> Level</p>
               </div>
             </div>
             <div className="course__details__info--right">
@@ -49,30 +49,35 @@ export const CourseDetails = () => {
           <li>Lesson 5</li>
         </ol>
       </div>
-      <div className="course__details__goals"></div>
+      <div className="course__details__goals">
         <h4>What you'll learn</h4>
-          <ul>
-            <li>Goal 1</li>
-            <li>Goal 2</li>
-            <li>Goal 3</li>
-            <li>Goal 4</li>
-          </ul>
+        <ul>
+          <li>Goal 1</li>
+          <li>Goal 2</li>
+          <li>Goal 3</li>
+          <li>Goal 4</li>
+        </ul>
+      </div>
       <div className="course__details__reviews">
-        <h4>Reviews</h4>
-          <div className="course__details__review__wrapper">
-          <img src="" alt="" style={{width: "50px", height: "50px", border: "1px solid #ff9f1c"}}/>
-            <div>
-              <h5>Jane Doe</h5>
-              <p>That was awesome!</p>
-            </div>
+        <h4>Featured reviews</h4>
+        <div className="course__details__review__wrapper">
+          <div className="course__details__review__image">
+            <img src="" alt="" />
           </div>
-          <div className="course__details__review__wrapper">
-            <img src="" alt="" style={{width: "50px", height: "50px", border: "1px solid #ff9f1c", borderRadius: "50px"}}/>
-            <div>
-              <h5>John Doe</h5>
-              <p>That was awesome!</p>
-            </div>
+          <div className="course__details__review__content">
+            <h5>Jane Doe</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis.</p>
           </div>
+        </div>
+        <div className="course__details__review__wrapper">
+          <div className="course__details__review__image">
+            <img src="" alt="" />
+          </div>
+          <div className="course__details__review__content">
+            <h5>John Doe</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis.</p>
+          </div>
+        </div>
       </div>
     </section>
   )
