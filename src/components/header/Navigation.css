@@ -30,17 +30,21 @@
   color: #ff9f1c;
 }
 
-.nav--active{
+.header__nav--active{
   background-color: #ff9f1c;
   background-image: linear-gradient(to right, #ff9f1c, rgba(1, 22, 39, 0.1));
 }
 
-.nav--active a:hover{
+.header__nav--active a:hover{
   color: #fdfffc;
 }
 
-.nav__logo__container a{
+.header__nav__logo__container a{
   padding: 14px 10px 10px;
+}
+
+.header__nav__link__container{
+  align-items: center;
 }
 
 @media (min-width: 600px){
@@ -48,7 +52,7 @@
     top: 40px;
   }
 
-  .nav--active{
+  .header__nav--active{
     top: 0;
   }
 }
