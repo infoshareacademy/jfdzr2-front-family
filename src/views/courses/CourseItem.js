@@ -29,6 +29,12 @@ const CourseItem = ({ course }) => {
                         <p><GrSteps /> { course.level }</p>
                     </div>
                 </div>
+                <div className="course__info__price">
+                    {typeof course.price === "number" ?
+                        <p>{ course.price } PLN</p> :
+                        <p>{ course.price }</p>
+                    }
+                </div>
             </div>
         </Link>
      );
