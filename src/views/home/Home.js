@@ -27,11 +27,11 @@ const Home = () => {
         <>
             <div className="home__wrapper">
                 <SimpleAccordion />
-                { isPending && <p>Loading...</p> }
                 { courses && <CourseList 
                     courses={courses} 
                     title="Our Courses"
                     visibleCourses={visibleCourses}
+                    isPending={isPending}
                     /> 
                 }
             </div>
