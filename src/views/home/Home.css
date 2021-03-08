@@ -10,3 +10,10 @@
         align-items: center;
     }
 }
+
+/* LOAD MORE BUTTON */
+.load__more__btn__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
