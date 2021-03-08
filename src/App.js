@@ -4,7 +4,6 @@ import Home from '../src/views/home/Home';
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { SearchBar } from "./components/searchbar/SearchBar";
-import { Navigation } from "./components/header/Navigation";
 
 function App() {
   return (
