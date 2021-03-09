@@ -21,7 +21,7 @@ export const Navigation = () => {
 
   return <nav className={scroll ? "header__nav header__nav--active" : "header__nav"}>
     <div className="header__nav__logo__container">
-      <NavLink exact to="/"><img width="100px" src={logoBlack} alt="Future Skills" /></NavLink>
+      <NavLink exact to="/"><img src={logoBlack} alt="Future Skills" /></NavLink>
     </div>
     <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
