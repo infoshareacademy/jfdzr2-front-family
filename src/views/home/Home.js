@@ -41,7 +41,7 @@ const Home = () => {
                 { visibleCourses < courses.length ?
                     (<Button variant="contained" color="inherit" 
                     style={{
-                        backgroundColor: "#2EC4B6",
+                        backgroundColor: "#FF9F1C",
                     }}
                     onClick={handleShowMoreCourses}
                     >
