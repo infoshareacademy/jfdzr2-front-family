@@ -5,6 +5,7 @@ import SimpleAccordion from "../../components/sidebar/Sidebar";
 import "./Home.css";
 import Button from "@material-ui/core/Button";
 import { HiOutlineChevronDown } from "react-icons/hi";
+import { SearchBar } from "../../components/searchbar/SearchBar";
 
 const Home = () => {
     const [courses, setCourses] = useState([]);
@@ -25,6 +26,7 @@ const Home = () => {
 
     return ( 
         <>
+            <SearchBar />
             <div className="home__wrapper">
                 <SimpleAccordion />
                 { courses && <CourseList 
