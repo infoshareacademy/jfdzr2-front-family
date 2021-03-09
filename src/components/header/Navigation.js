@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from "react";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 import logoBlack from "../../assets/img/logo_black.svg";
 
@@ -18,14 +19,14 @@ export const Navigation = () => {
 
   window.addEventListener("scroll", handleScroll);
 
-  return <nav className={scroll ? "header__nav nav--active" : "header__nav"}>
-    <div className="nav__logo__container">
-      <NavLink exact to="/"><img width="100px" src={logoBlack} alt="Future Skills" /></NavLink>
+  return <nav className={scroll ? "header__nav header__nav--active" : "header__nav"}>
+    <div className="header__nav__logo__container">
+      <NavLink exact to="/"><img src={logoBlack} alt="Future Skills" /></NavLink>
     </div>
-    <div>
+    <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
-      <NavLink to="/cart">Cart</NavLink>
+      <NavLink to="/cart"><ShoppingCartIcon /></NavLink>
     </div>
   </nav>
 }
