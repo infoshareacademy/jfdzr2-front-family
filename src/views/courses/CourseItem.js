@@ -4,6 +4,7 @@ import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
 import { Link } from "react-router-dom";
+import { MdAddShoppingCart } from "react-icons/md";
 
 const CourseItem = ({ course }) => {
     return (
@@ -34,6 +35,14 @@ const CourseItem = ({ course }) => {
                         <p>{ course.price } PLN</p> :
                         <p>{ course.price }</p>
                     }
+                    <button className="course__info__cart__btn">
+                        <MdAddShoppingCart
+                            style={{
+                                paddingTop: "5px",
+                                fontSize: "25px"
+                            }}
+                        />
+                    </button>
                 </div>
             </div>
         </Link>
