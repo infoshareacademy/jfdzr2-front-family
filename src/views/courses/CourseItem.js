@@ -35,7 +35,7 @@ const CourseItem = ({ course }) => {
                         <p>{ course.price } PLN</p> :
                         <p>{ course.price }</p>
                     }
-                    <button className="course__info__cart__btn">
+                    <button className="course__info__cart__btn" title="Add to cart">
                         <MdAddShoppingCart
                             style={{
                                 paddingTop: "5px",
