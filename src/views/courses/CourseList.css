@@ -6,6 +6,11 @@
     margin: 15px 20px;
 }
 
+.course__list a{
+    color: #000;
+    text-decoration: none;
+}
+
 .course__tile, .course__info__time__and__level {
     display: flex;
 }
