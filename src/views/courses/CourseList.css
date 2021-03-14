@@ -102,7 +102,11 @@
     display: block;
 }
 
-@media screen and (max-width: 794px) {
+@media screen and (max-width: 830px) {
+    .course__info__summary {
+        display: none;
+    }
+
     .course__image {
         align-items: flex-start;
         margin-top: 20px;
@@ -120,13 +124,15 @@
         margin-left: initial;
     }
 
-    .course__info__summary {
-        display: none;
-    }
-
     .course__image img {
         width: 150px;
         height: 120px;
+    }
+}
+
+@media screen and (min-width: 451px) and (max-width: 668px) {
+    .course__info__summary {
+        display: block;
     }
 }
 
