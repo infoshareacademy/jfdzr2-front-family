@@ -12,6 +12,10 @@
     text-decoration: none;
 }
 
+.course__details__link {
+    display: flex;
+}
+
 .course__tile, .course__info__time__and__level {
     display: flex;
 }
@@ -94,7 +98,7 @@
     color: #edf2f4;
 }
 
-.course__tile:hover > .course__info__price > .course__info__cart__btn {
+.course__details__link:hover > .course__info__price > .course__info__cart__btn {
     display: block;
 }
 
@@ -127,7 +131,7 @@
 }
 
 @media screen and (max-width: 450px) {
-    .course__tile {
+    .course__details__link {
         flex-direction: column;
     }
 
