@@ -1,0 +1,51 @@
+.cart__view__list__item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.cart__view__list__item__title {
+    font-weight: bold;
+}
+
+.cart__view__list__item__author {
+    font-size: 13px;
+}
+
+.checkout__wrapper {
+    font-weight: bold;
+}
+
+.checkout__total__price {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.checkout__total__price p:first-child {
+    text-transform: uppercase;
+}
+
+.checkout__link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.checkout__link button {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #18ac9d;
+    background-color: #edf2f4;
+    color: #18ac9d;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.checkout__link button:hover {
+    background-color: #18ac9d;
+    color: #edf2f4;
+}
