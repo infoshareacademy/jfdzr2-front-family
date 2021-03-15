@@ -89,7 +89,7 @@ export default function CartViewPopper() {
                         <p>28.98 PLN</p>
                     </div>
                     <NavLink to="/cart" className="checkout__link">
-                        <button>Checkout</button>
+                        <button>Go to cart</button>
                     </NavLink>
                 </div>
             </Typography>
