@@ -6,7 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
-import './CartViewPopper.css'
+import './CartViewPopper.css';
+import CourseImage from "../../assets/img/banner_640.jpg";
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -63,25 +64,40 @@ export default function CartViewPopper() {
             <Typography 
                 className={classes.typography}
                 style={{
-                    maxWidth: "320px"
+                    maxWidth: "350px"
                 }}
             >
                 <div className="cart__view__list">
-                    <div className="cart__view__list__item">
-                        <p className="cart__view__list__item__title">Learn Business English</p>
-                        <p className="cart__view__list__item__author">by Jane White</p>
-                        <p>15.99 PLN</p>
-                    </div>
-                    <div className="cart__view__list__item">
-                        <p className="cart__view__list__item__title">Agile Fundamentals: Including Scrum and Kanban</p>
-                        <p className="cart__view__list__item__author">by John O'Brien</p>
-                        <p>12.99 PLN</p>
-                    </div>
-                    <div className="cart__view__list__item">
-                        <p className="cart__view__list__item__title">Complete Python - From Hero to Zero in Python</p>
-                        <p className="cart__view__list__item__author">by John Doe</p>
-                        <p>Free</p>
-                    </div>
+                    <article className="cart__view__list__item">
+                        <div>
+                            <img src={CourseImage} alt="course image" />
+                        </div>
+                        <div>
+                            <p className="cart__view__list__item__title">Learn Business English</p>
+                            <p className="cart__view__list__item__author">by Jane White</p>
+                            <p>15.99 PLN</p>
+                        </div>
+                    </article>
+                    <article className="cart__view__list__item">
+                        <div>
+                            <img src={CourseImage} alt="course image" />
+                        </div>
+                        <div>
+                            <p className="cart__view__list__item__title">Agile Fundamentals: Including Scrum and Kanban</p>
+                            <p className="cart__view__list__item__author">by John O'Brien</p>
+                            <p>15.99 PLN</p>
+                        </div>
+                    </article>
+                    <article className="cart__view__list__item">
+                        <div>
+                            <img src={CourseImage} alt="course image" />
+                        </div>
+                        <div>
+                            <p className="cart__view__list__item__title">Complete Python - From Hero to Zero in Python</p>
+                            <p className="cart__view__list__item__author">by John Doe</p>
+                            <p>Free</p>
+                        </div>
+                    </article>
                 </div>
                 <div className="checkout__wrapper">
                     <div className="checkout__total__price">

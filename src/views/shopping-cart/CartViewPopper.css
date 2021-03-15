@@ -1,8 +1,15 @@
 .cart__view__list__item {
+    display: flex;
     padding: 10px 0;
     border-bottom: 1px solid rgb(197, 197, 197);
 }
 
+.cart__view__list__item img {
+    width: 70px; 
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+}
 .cart__view__list__item__title {
     font-weight: bold;
 }
