@@ -1,3 +1,21 @@
+.cart__popover__wrapper {
+    cursor: pointer;
+    transition: color 300ms;
+}
+
+.cart__popover__wrapper:hover {
+    color: #ff9f1c;
+}
+
+.cart__popover__wrapper--active {
+    transition: color 300ms;
+}
+
+.cart__popover__wrapper--active:hover{
+    color: #fdfffc;
+  }
+  
+
 .cart__view__list__item {
     display: flex;
     padding: 10px 0;
