@@ -37,9 +37,9 @@ const CourseItem = ({ course }) => {
                     </div>
                 </div>
                 <div className="course__info__price">
-                    {typeof course.price === "number" ?
+                    { course.price > 0 ?
                         <p>{ course.price } PLN</p> :
-                        <p>{ course.price }</p>
+                        <p>Free</p>
                     }
                     <button 
                         className="course__info__cart__btn" 
