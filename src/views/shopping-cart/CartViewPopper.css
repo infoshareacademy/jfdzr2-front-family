@@ -8,6 +8,7 @@
 }
 
 .cart__popover__wrapper--active {
+    cursor: pointer;
     transition: color 300ms;
 }
 
