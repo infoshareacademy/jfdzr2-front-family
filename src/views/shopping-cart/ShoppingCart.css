@@ -2,7 +2,7 @@
 /*STYLING OF AN EMPTY BASKET ELEMENTS*/
 .cart__wrapper h2 {
     margin: 25px auto;
-    max-width: 75%;
+    max-width: 60%;
 }
 
 .empty__cart__message {
@@ -14,6 +14,10 @@
     padding: 25px;
     border: 1px solid rgb(194, 194, 194);
     max-width: 75%;
+}
+
+.empty__cart__message p {
+    text-align: center;
 }
 
 .empty__cart__message button {
@@ -32,3 +36,118 @@
     background-color: #E71D36;
     color: #edf2f4;
 }
+
+/*STYLING OF THE ELEMENTS IN THE CART LIST*/
+.shopping__cart__container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px auto;
+    max-width: 75%;
+}
+
+.shopping__cart__list__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+    border: 1px solid rgb(197, 197, 197);
+}
+
+.shopping__cart__list__item img {
+    max-width: 180px;
+    max-height: 80px;
+}
+
+.shopping__cart__list__item button {
+    border: none;
+    cursor: pointer;
+}
+
+.cart__summary__info, .cart__price__checkout {
+    display: flex;
+    align-items: center;
+}
+
+.cart__price__checkout p {
+    text-align: right;
+}
+
+.cart__summary__info {
+    gap: 20px;
+}
+
+.cart__price__checkout {
+    gap: 30px;
+}
+
+.cart__course__title p:first-child {
+    font-weight: bold;
+}
+
+.cart__course__title p:nth-child(2) {
+    font-size: 14px;
+}
+
+.cart__course__total button {
+    min-width: 250px;
+    margin-top: 15px;
+    padding: 12px 16px;
+    border: 1px solid #18ac9d;
+    background-color: #edf2f4;
+    color: #18ac9d;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cart__course__total button:hover {
+    background-color: #18ac9d;
+    color: #edf2f4;
+}
+
+.cart__course__total__price {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1284px) {
+    .cart__wrapper h2 {
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .shopping__cart__container {
+        flex-direction: column-reverse;
+    }
+
+    .cart__course__total button {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .shopping__cart__list__item {
+        flex-direction: column;
+    }
+
+    .cart__price__checkout {
+        justify-content: space-between;
+    }
+
+    .shopping__cart__list__item img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .shopping__cart__container, .cart__wrapper h2 {
+        max-width: 85%;
+    }
+}
+
