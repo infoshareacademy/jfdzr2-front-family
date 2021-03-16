@@ -4,6 +4,7 @@ import { green } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { db } from '../../services/firebase-config';
 
 // const GreenCheckbox = withStyles({
 //   root: {
@@ -17,23 +18,28 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 export default function CheckboxesPrice() {
   const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
+    free: false,
+    paid: false,
+
   });
 
   const handleChange = (event) => {
+  
     setState({ ...state, [event.target.name]: event.target.checked });
+
+    console.log(state)
   };
+
+  const { free, paid } = state;
 
   return (
     <>
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedA}
+            checked={paid}
             onChange={handleChange}
-            name="checkedA"
+            name="paid"
           />
         }
         label="Paid"
@@ -41,9 +47,9 @@ export default function CheckboxesPrice() {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedB}
+            checked={free}
             onChange={handleChange}
-            name="checkedB"
+            name="free"
           />
         }
         label="Free"

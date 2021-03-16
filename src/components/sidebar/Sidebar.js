@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion() {
+export default function Sidebar(props) {
   const classes = useStyles();
 
   return (
@@ -72,7 +72,7 @@ export default function SimpleAccordion() {
         <AccordionDetails>
         
             
-              <CheckboxesTopic />
+              <CheckboxesTopic topic={props.topic} onChange={props.onTopicChange}/>
             
           
         </AccordionDetails>
@@ -95,7 +95,7 @@ export default function SimpleAccordion() {
         <AccordionDetails>
         
             
-              <CheckboxesLevel />
+              <CheckboxesLevel level={props.level} onChange={props.onLevelChange} />
             
         
         </AccordionDetails>

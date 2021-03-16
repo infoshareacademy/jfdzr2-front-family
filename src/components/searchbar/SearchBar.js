@@ -18,7 +18,7 @@ export const SearchBar = () => {
         type="text"
         style={BarStyling}
         key="random1"
-        value=""
+        
         placeholder={"search course"}
         name="search"
       />
