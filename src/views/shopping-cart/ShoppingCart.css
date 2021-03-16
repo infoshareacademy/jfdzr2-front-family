@@ -81,6 +81,10 @@
     gap: 30px;
 }
 
+.cart__price__checkout button {
+    padding: 8px;
+}
+
 .cart__course__title p:first-child {
     font-weight: bold;
 }
