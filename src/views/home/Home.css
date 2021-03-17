@@ -4,8 +4,16 @@
     margin-top: 10px;
 }
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 667px) {
     .home__wrapper {
         flex-direction: column;
+        align-items: center;
     }
+}
+
+/* LOAD MORE BUTTON */
+.load__more__btn__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }

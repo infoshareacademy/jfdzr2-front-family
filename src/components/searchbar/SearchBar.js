@@ -8,7 +8,6 @@ export const SearchBar = () => {
     background: "##ffffff",
     border: "1px solid rgb(187, 187, 187)",
     padding: "0.5rem",
-    marginLeft: "32%",
     marginTop: "50px",
   };
 
