@@ -17,22 +17,32 @@ const Home = () => {
     intermediate: false,
     expert: false,
   });
-  
+
   const handleLevelChange = (event) => {
     setLevel({ ...level, [event.target.name]: event.target.checked });
   };
-  
+
   const [topic, setTopic] = useState({
     business: false,
     graphic: false,
     languages: false,
     programming: false,
   });
-  
+
   const handleTopicChange = (event) => {
     setTopic({ ...topic, [event.target.name]: event.target.checked });
   };
- 
+
+  const [duration, setDuration] = useState({
+    oneToFive: false,
+    sixToTen: false,
+    elevenToFifteen: false,
+    aboveSixteen: false,
+  });
+
+  const handleDurationChange = (event) => {
+    setDuration({ ...duration, [event.target.name]: event.target.checked });
+  };
 
   useEffect(() => {
     db.collection("courses")
@@ -47,20 +57,7 @@ const Home = () => {
     setVisibleCourses((previousValue) => previousValue + 4);
   };
 
-  //   for(var key in topic){
-  //       if(topic.hasOwnProperty(key) && topic[key] == false){
-  //        delete topic[key];
-  //       }
-  //     }
-
-  //   let topicList = Object.keys(topic);
-  //   let numberOfTopicFilters = topicList.length;
-
   let filteredCourses = courses;
-  // console.log(levelList);
-
-  // if(numberOfFilters > 0)
-  //     {filteredCourses = courses.filter(course => course.level === `${JSON.stringify(levelList).charAt(0).toUpperCase() + JSON.stringify(levelList).substring(1)}`)};
 
   if (level.beginner) {
     filteredCourses = courses.filter((course) => course.level === "Beginner");
@@ -71,7 +68,9 @@ const Home = () => {
   }
 
   if (level.intermediate) {
-    filteredCourses = courses.filter((course) => course.level === "Intermediate");
+    filteredCourses = courses.filter(
+      (course) => course.level === "Intermediate"
+    );
   }
 
   if (level.intermediate && level.beginner) {
@@ -83,66 +82,72 @@ const Home = () => {
   }
 
   if (level.beginner && level.expert) {
-    filteredCourses = courses.filter((course) => course.level !== "Intermediate");
+    filteredCourses = courses.filter(
+      (course) => course.level !== "Intermediate"
+    );
   }
 
   if (level.beginner && level.expert && level.intermediate) {
     filteredCourses = courses.filter((course) => course.level);
   }
 
-let allFilters = [];
+  let allFiltersTopic = [];
 
-  for(var key in topic){
-        if(topic.hasOwnProperty(key) && topic[key] == false){
-         delete topic[key];
-        }
-        if(topic.hasOwnProperty(key) && topic[key] == true && topic === "business")
-     {   filteredCourses = courses.filter((course) => course.topic == "Business")
-      }}
+  if (!topic.business) {
+    allFiltersTopic.push("Business");
+  }
+  if (!topic.languages) {
+    allFiltersTopic.push("Languages");
+  }
+  if (!topic.graphic) {
+    allFiltersTopic.push("Graphic Design");
+  }
+  if (!topic.programming) {
+    allFiltersTopic.push("Programming");
+  }
 
-    let topicList = Object.keys(topic);
-    let numberOfTopicsChosen = topicList.length
-  console.log(topicList);
+  if (allFiltersTopic.length === 3) {
+    filteredCourses = filteredCourses
+      .filter((course) => course.category !== allFiltersTopic[0])
+      .filter((course) => course.category !== allFiltersTopic[1])
+      .filter((course) => course.category !== allFiltersTopic[2]);
+  }
 
-  if (
-    topic.business &&
-    !topic.graphic &&
-    !topic.languages &&
-    !topic.programming
-  ) {
+  if (allFiltersTopic.length === 2) {
+    filteredCourses = filteredCourses
+      .filter((course) => course.category !== allFiltersTopic[0])
+      .filter((course) => course.category !== allFiltersTopic[1]);
+  }
+
+  if (allFiltersTopic.length === 1) {
     filteredCourses = filteredCourses.filter(
-      (course) => course.category === "Business"
+      (course) => course.category !== allFiltersTopic[0]
     );
   }
 
-  if (
-    topic.business &&
-    topic.graphic &&
-    !topic.languages &&
-    !topic.programming
-  ) {
+  if (duration.oneToFive) {
+    filteredCourses = filteredCourses.filter((course) => course.duration < 5);
+  }
+
+  if (duration.oneToFive && duration.sixToTen) {
+    filteredCourses = filteredCourses.filter((course) => course.duration < 11);
+  }
+
+  if (duration.sixToTen) {
     filteredCourses = filteredCourses.filter(
-      (course) =>
-        course.category !== "Languages" && course.category !== "Programming"
+      (course) => course.duration >= 5 && course.duration < 11
     );
   }
 
-  if (
-    topic.business &&
-    topic.graphic &&
-    topic.languages &&
-    !topic.programming
-  ) {
+  if (duration.elevenToFifteen) {
     filteredCourses = filteredCourses.filter(
-      (course) => course.category !== "Programming"
+      (course) => course.duration >= 11 && course.duration < 16
     );
   }
 
-  if (topic.business && topic.graphic && topic.languages && topic.programming) {
-    filteredCourses = filteredCourses.filter((course) => course.category);
+  if (duration.aboveSixteen) {
+    filteredCourses = filteredCourses.filter((course) => course.duration >= 16);
   }
-
-  // let filteredCourses = level.beginner ? courses.filter(course => course.level === "Beginner") : courses;
 
   return (
     <>
@@ -153,6 +158,8 @@ let allFilters = [];
           onLevelChange={handleLevelChange}
           topic={topic}
           onTopicChange={handleTopicChange}
+          duration={duration}
+          onDurationChange={handleDurationChange}
         />
         {courses && (
           <CourseList

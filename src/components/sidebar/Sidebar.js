@@ -141,7 +141,7 @@ export default function Sidebar(props) {
         <AccordionDetails>
          
             
-              <CheckboxesDuration />
+              <CheckboxesDuration duration={props.duration} onChange={props.onDurationChange}/>
             
          
         </AccordionDetails>
