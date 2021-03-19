@@ -149,6 +149,7 @@ const Home = () => {
     filteredCourses = filteredCourses.filter((course) => course.duration >= 16);
   }
 
+
   return (
     <>
       <SearchBar />
