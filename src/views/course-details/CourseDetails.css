@@ -8,21 +8,21 @@
 
 .course__details__top__wrapper{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   gap: 25px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .course__details__info__wrapper{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
 }
 
 .course__details__name{
   margin-bottom: 30px;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 400;
 }
 
@@ -86,7 +86,6 @@
 
 .course__details__image{
   display: flex;
-  width: 50%;
 }
 
 .course__details__image img{
@@ -97,7 +96,7 @@
 
 .course__details h4{
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 400;
 }
 
@@ -111,7 +110,7 @@
 .course__details__description p,
 .course__details__requirements p{
   margin-bottom: 15px;
-  font-size: 1rem;
+  font-size: 0.938rem;
   line-height: 1.375rem;
 }
 
@@ -128,6 +127,8 @@
 .course__details__content li,
 .course__details__goals li{
   margin-bottom: 15px;
+  font-size: 0.938rem;
+  line-height: 1.375rem;
 }
 
 .course__details__reviews{
@@ -137,6 +138,7 @@
 
 .course__details__review__wrapper{
   display: flex;
+  flex-direction: column;
   margin-bottom: 30px;
 }
 
@@ -149,18 +151,64 @@
 }
 
 .course__details__review__wrapper img{
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
-  margin-right: 15px;
+  margin: 0 15px 15px 0;
   border: 1px solid #ff9f1c;
   border-radius: 50%;
 }
 
 .course__details__review__content h5{
-  font-size: 1rem;
+  font-size: 0.938rem;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.course__details__review__content p{
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+
+@media (min-width: 375px){
+  .course__details__name{
+    font-size: 1.5rem;
+  }
+
+  .course__details h4{
+    font-size: 1.5rem;
+  }
+  
+  .course__details__description p,
+  .course__details__requirements p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .course__details__content li,
+  .course__details__goals li{
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .course__details__review__wrapper{
+    flex-direction: row;
+  }
+
+  .course__details__review__wrapper img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .course__details__review__content h5{
+    font-size: 1rem;
+  }
+  
+  .course__details__review__content p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 600px){
@@ -178,7 +226,22 @@
   .course__details__info__author,
   .course__details__info__hours__and__level{
     font-size: 0.938rem;
+  }
 }
+
+@media (min-width: 700px){
+  .course__details__top__wrapper{
+    flex-direction: row;
+  }
+
+  .course__details__info__wrapper{
+    width: 50%;
+  }
+
+  .course__details__image{
+    width: 50%;
+  }
+
 }
 
 @media (min-width: 794px){
