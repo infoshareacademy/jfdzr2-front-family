@@ -15,7 +15,7 @@ const CourseItem = ({ course }) => {
 
     return (
         <div className="course__tile"> 
-            <Link to="/course-details" className="course__details__link"> 
+            <Link to={`/course-details/${course.id}`}className="course__details__link"> 
                     <div className="course__image">
                         <img src={ course.image } alt="course image" />
                     </div>
