@@ -57,7 +57,11 @@
 }
 
 .course__details__info__rating{
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 1rem;
+  font-weight: 500;
   color: #ff9f1c;
 }
 
@@ -241,10 +245,9 @@
   .course__details__image{
     width: 50%;
   }
-
 }
 
-@media (min-width: 794px){
+@media (min-width: 865px){
   .course__details__info{
     flex-direction: row;
   }
@@ -261,10 +264,6 @@
   .course__details__info__price{
     font-size: 1.375rem;
   }
-
-  .course__details__info__btn{
-    width: 85%;
-  }
 }
 
 @media (min-width: 1024px){
@@ -272,7 +271,19 @@
     max-height: 300px;
   }
 
+  .course__details__info__wrapper{
+    width: 60%;
+  }
+
   .course__details__name{
     font-size: 2rem;
+  }
+
+  .course__details__info__btn{
+    width: 85%;
+  }
+
+  .course__details__image{
+    width: 40%;
   }
 }
