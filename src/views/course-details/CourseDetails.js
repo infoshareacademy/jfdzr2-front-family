@@ -7,12 +7,14 @@ import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
 
 export const CourseDetails = ({match: {params: {id}}}) => {
+  const [courseDetails, setCourseDetails] = useState({});
+
   useEffect(() => {
     db.collection('courses').get()
       .then((snapshot) => {
         snapshot.docs.map(doc => {
           if(id === doc.id) {
-            console.log(doc.data());
+            setCourseDetails(doc.data());
           }
         })
       });
