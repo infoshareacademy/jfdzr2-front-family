@@ -1,10 +1,23 @@
 import "./CourseDetails.css";
+import { useEffect, useState } from "react";
+import { db } from '../../services/firebase-config';
 import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
 
-export const CourseDetails = () => {
+export const CourseDetails = ({match: {params: {id}}}) => {
+  useEffect(() => {
+    db.collection('courses').get()
+      .then((snapshot) => {
+        snapshot.docs.map(doc => {
+          if(id === doc.id) {
+            console.log(doc.data());
+          }
+        })
+      });
+  }, []);
+
   return (
     <section className="course__details">
       <div className="course__details__top__wrapper">
