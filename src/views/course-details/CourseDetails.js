@@ -24,44 +24,54 @@ export const CourseDetails = ({match: {params: {id}}}) => {
     <section className="course__details">
       <div className="course__details__top__wrapper">
         <div className="course__details__info__wrapper">
-          <h3 className="course__details__name">3 Minute French - Course 1 | Language Lessons for Beginners</h3>
+          <h3 className="course__details__name">{courseDetails.title}</h3>
           <div className="course__details__info">
             <div className="course__details__info--left">
-              <p className="course__details__info__category"><VscFolderOpened /> Category</p>
-              <p className="course__details__info__author"> by Jane Doe</p>
-              <p className="course__details__info__rating"><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStar/></p>
+              <p className="course__details__info__category"><VscFolderOpened /> {courseDetails.category}</p>
+              <p className="course__details__info__author"> by {courseDetails.author}</p>
+              <div className="course__details__info__rating">
+                <p>{courseDetails.rating}</p>
+                {courseDetails.rating > 4
+                  ? 
+                  (<p><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf/></p>)
+                  :
+                  (<p><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf /> <BsStar/></p>)
+                }
+              </div>
               <div className="course__details__info__hours__and__level">
-                <p><GoCalendar /> Duration</p>
-                <p><GrSteps /> Level</p>
+                <p><GoCalendar /> {courseDetails.duration} h</p>
+                <p><GrSteps /> {courseDetails.level}</p>
               </div>
             </div>
             <div className="course__details__info--right">
-              <p className="course__details__info__price">$ XX</p>
+              {typeof courseDetails.price === "number"
+                ? <p className="course__details__info__price">{courseDetails.price} PLN</p>
+                : <p className="course__details__info__price">{courseDetails.price}</p>
+              }
               <button className="course__details__info__btn">Add to cart</button>
             </div>
           </div>
         </div>
         <div className="course__details__image">
-          <img src="https://source.unsplash.com/DUmFLtMeAbQ/1600x900" alt="Course image"/>
+          <img src={courseDetails.image} alt="Course image"/>
         </div>
       </div>
       <div className="course__details__description">
         <h4>Description</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem incidunt mollitia eligendi corrupti harum nam porro animi numquam! Impedit repellendus illo autem suscipit corrupti non consequatur error hic velit sapiente.</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, nihil. Unde, quos consequuntur assumenda quisquam dicta facilis, ut eius quas sit quae sapiente maxime, blanditiis odio obcaecati. Facere corporis ipsam, totam iure et, aspernatur id magni commodi beatae ratione reprehenderit!</p>
+        <p>{courseDetails.description}</p>
       </div>
       <div className="course__details__requirements">
         <h4>Requirements</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis? Provident, architecto?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis.</p>
       </div>
       <div className="course__details__content">
         <h4>Course content</h4>
         <ol>
-          <li>Lesson 1</li>
-          <li>Lesson 2</li>
-          <li>Lesson 3</li>
-          <li>Lesson 4</li>
-          <li>Lesson 5</li>
+          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+          <li>Totam quidem labore eius.</li>
+          <li>Excepturi nesciunt voluptatem voluptate.</li>
+          <li>Voluptate, ut, doloremque repellat reiciendis at similique magnam.</li>
+          <li>Rem dolor quis dolore voluptatem neque aut.</li>
         </ol>
       </div>
       <div className="course__details__goals">
