@@ -8,6 +8,7 @@ import { VscFolderOpened } from "react-icons/vsc";
 
 export const CourseDetails = ({match: {params: {id}}}) => {
   const [courseDetails, setCourseDetails] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     db.collection('courses').get()
@@ -15,10 +16,17 @@ export const CourseDetails = ({match: {params: {id}}}) => {
         snapshot.docs.map(doc => {
           if(id === doc.id) {
             setCourseDetails(doc.data());
+            setLoading(false);
           }
         })
       });
   }, []);
+
+  if(loading) {
+    return(
+      <p style={{display: "flex", alignItems: "center", justifyContent: "center", height: "30vh"}}>Loading...</p>
+    )
+  }
 
   return (
     <section className="course__details">
