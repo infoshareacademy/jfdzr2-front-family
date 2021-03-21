@@ -1,68 +1,104 @@
 import "./CourseDetails.css";
+import { useEffect, useState } from "react";
+import { db } from '../../services/firebase-config';
 import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
+import CheckIcon from '@material-ui/icons/Check';
+import user_1 from "../../assets/img/user_1.jpg";
+import user_2 from "../../assets/img/user_2.jpg";
 
-export const CourseDetails = () => {
+export const CourseDetails = ({match: {params: {id}}}) => {
+  const [courseDetails, setCourseDetails] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    db.collection('courses').get()
+      .then((snapshot) => {
+        snapshot.docs.map(doc => {
+          if(id === doc.id) {
+            setCourseDetails(doc.data());
+            setLoading(false);
+          }
+        })
+      });
+  }, []);
+
+  if(loading) {
+    return(
+      <p style={{display: "flex", alignItems: "center", justifyContent: "center", height: "30vh"}}>Loading...</p>
+    )
+  }
+
   return (
     <section className="course__details">
       <div className="course__details__top__wrapper">
         <div className="course__details__info__wrapper">
-          <h3 className="course__details__name">3 Minute French - Course 1 | Language Lessons for Beginners</h3>
+          <h3 className="course__details__name">{courseDetails.title}</h3>
           <div className="course__details__info">
             <div className="course__details__info--left">
-              <p className="course__details__info__category"><VscFolderOpened /> Category</p>
-              <p className="course__details__info__author"> by Jane Doe</p>
-              <p className="course__details__info__rating"><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStar/></p>
+              <p className="course__details__info__category"><VscFolderOpened /> {courseDetails.category}</p>
+              <p className="course__details__info__author"> by {courseDetails.author}</p>
+              <div className="course__details__info__rating">
+                <p>{courseDetails.rating}</p>
+                {courseDetails.rating > 4
+                  ? 
+                  (<p><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf/></p>)
+                  :
+                  (<p><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf /> <BsStar/></p>)
+                }
+              </div>
               <div className="course__details__info__hours__and__level">
-                <p><GoCalendar /> Duration</p>
-                <p><GrSteps /> Level</p>
+                <p><GoCalendar /> {courseDetails.duration} h</p>
+                <p><GrSteps /> {courseDetails.level}</p>
               </div>
             </div>
             <div className="course__details__info--right">
-              <p className="course__details__info__price">$ XX</p>
+              {courseDetails.price > 0
+                ? <p className="course__details__info__price">PLN {courseDetails.price}</p>
+                : <p className="course__details__info__price">Free</p>
+              }
               <button className="course__details__info__btn">Add to cart</button>
             </div>
           </div>
         </div>
         <div className="course__details__image">
-          <img src="https://source.unsplash.com/DUmFLtMeAbQ/1600x900" alt="Course image"/>
+          <img src={courseDetails.image} alt="Course image"/>
         </div>
       </div>
       <div className="course__details__description">
         <h4>Description</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem incidunt mollitia eligendi corrupti harum nam porro animi numquam! Impedit repellendus illo autem suscipit corrupti non consequatur error hic velit sapiente.</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, nihil. Unde, quos consequuntur assumenda quisquam dicta facilis, ut eius quas sit quae sapiente maxime, blanditiis odio obcaecati. Facere corporis ipsam, totam iure et, aspernatur id magni commodi beatae ratione reprehenderit!</p>
+        <p>{courseDetails.description}</p>
       </div>
       <div className="course__details__requirements">
         <h4>Requirements</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis? Provident, architecto?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores at repellat quaerat perferendis.</p>
       </div>
       <div className="course__details__content">
         <h4>Course content</h4>
         <ol>
-          <li>Lesson 1</li>
-          <li>Lesson 2</li>
-          <li>Lesson 3</li>
-          <li>Lesson 4</li>
-          <li>Lesson 5</li>
+          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+          <li>Totam quidem labore eius.</li>
+          <li>Excepturi nesciunt voluptatem voluptate.</li>
+          <li>Voluptate, ut, doloremque repellat reiciendis at similique magnam.</li>
+          <li>Rem dolor quis dolore voluptatem neque aut.</li>
         </ol>
       </div>
       <div className="course__details__goals">
         <h4>What you'll learn</h4>
         <ul>
-          <li>Goal 1</li>
-          <li>Goal 2</li>
-          <li>Goal 3</li>
-          <li>Goal 4</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Gravida dictum fusce ut placerat orci.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Purus viverra accumsan in nisl nisi.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Risus commodo viverra maecenas accumsan lacus.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Egestas pretium aenean pharetra magna.</li>
         </ul>
       </div>
       <div className="course__details__reviews">
         <h4>Featured reviews</h4>
         <div className="course__details__review__wrapper">
           <div className="course__details__review__image">
-            <img src="" alt="" />
+            <img src={user_2} alt="User avatar" />
           </div>
           <div className="course__details__review__content">
             <h5>Jane Doe</h5>
@@ -71,7 +107,7 @@ export const CourseDetails = () => {
         </div>
         <div className="course__details__review__wrapper">
           <div className="course__details__review__image">
-            <img src="" alt="" />
+            <img src={user_1} alt="User avatar" />
           </div>
           <div className="course__details__review__content">
             <h5>John Doe</h5>
