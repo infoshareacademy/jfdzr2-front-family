@@ -1,18 +1,18 @@
 import { createSelector } from 'reselect';
 
-export const coursesInCart = state => state.shoppingCart.courses;
+export const coursesInCartSelector = state => state.shoppingCart.courses;
 
-export const coursesInCartIds = createSelector(
-    coursesInCart,
+export const coursesInCartIdsSelector = createSelector(
+    coursesInCartSelector,
     (courses) => courses.map(course => course.id)
 );
 
-export const coursesInCartPrices = createSelector(
-    coursesInCart,
+export const coursesInCartPricesSelector = createSelector(
+    coursesInCartSelector,
     (courses) => courses.map(course => course.price)
 ) 
 
-export const isCourseInCart = (courseID) => createSelector(
-    coursesInCartIds,
+export const isCourseInCartSelector = (courseID) => createSelector(
+    coursesInCartIdsSelector,
     ids => ids.includes(courseID)
 )
