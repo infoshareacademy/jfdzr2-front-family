@@ -6,6 +6,8 @@ import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
 import CheckIcon from '@material-ui/icons/Check';
+import user_1 from "../../assets/img/user_1.jpg";
+import user_2 from "../../assets/img/user_2.jpg";
 
 export const CourseDetails = ({match: {params: {id}}}) => {
   const [courseDetails, setCourseDetails] = useState({});
@@ -96,7 +98,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
         <h4>Featured reviews</h4>
         <div className="course__details__review__wrapper">
           <div className="course__details__review__image">
-            <img src="" alt="" />
+            <img src={user_2} alt="User avatar" />
           </div>
           <div className="course__details__review__content">
             <h5>Jane Doe</h5>
@@ -105,7 +107,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
         </div>
         <div className="course__details__review__wrapper">
           <div className="course__details__review__image">
-            <img src="" alt="" />
+            <img src={user_1} alt="User avatar" />
           </div>
           <div className="course__details__review__content">
             <h5>John Doe</h5>
