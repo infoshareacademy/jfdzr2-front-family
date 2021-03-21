@@ -5,6 +5,7 @@ import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
+import CheckIcon from '@material-ui/icons/Check';
 
 export const CourseDetails = ({match: {params: {id}}}) => {
   const [courseDetails, setCourseDetails] = useState({});
@@ -53,7 +54,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
             </div>
             <div className="course__details__info--right">
               {typeof courseDetails.price === "number"
-                ? <p className="course__details__info__price">{courseDetails.price} PLN</p>
+                ? <p className="course__details__info__price">PLN {courseDetails.price}</p>
                 : <p className="course__details__info__price">{courseDetails.price}</p>
               }
               <button className="course__details__info__btn">Add to cart</button>
@@ -85,10 +86,10 @@ export const CourseDetails = ({match: {params: {id}}}) => {
       <div className="course__details__goals">
         <h4>What you'll learn</h4>
         <ul>
-          <li>Goal 1</li>
-          <li>Goal 2</li>
-          <li>Goal 3</li>
-          <li>Goal 4</li>
+          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Gravida dictum fusce ut placerat orci.</li>
+          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Purus viverra accumsan in nisl nisi.</li>
+          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Risus commodo viverra maecenas accumsan lacus.</li>
+          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Egestas pretium aenean pharetra magna.</li>
         </ul>
       </div>
       <div className="course__details__reviews">
