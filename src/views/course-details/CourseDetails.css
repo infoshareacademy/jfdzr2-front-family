@@ -149,6 +149,11 @@
   line-height: 1.375rem;
 }
 
+.course__details__content li:last-child,
+.course__details__goals li:last-child{
+  margin-bottom: 0;
+}
+
 .course__details__goals li{
   display: flex;
   align-items: flex-start;
