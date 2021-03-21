@@ -55,9 +55,9 @@ export const CourseDetails = ({match: {params: {id}}}) => {
               </div>
             </div>
             <div className="course__details__info--right">
-              {typeof courseDetails.price === "number"
+              {courseDetails.price > 0
                 ? <p className="course__details__info__price">PLN {courseDetails.price}</p>
-                : <p className="course__details__info__price">{courseDetails.price}</p>
+                : <p className="course__details__info__price">Free</p>
               }
               <button className="course__details__info__btn">Add to cart</button>
             </div>
