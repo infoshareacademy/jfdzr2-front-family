@@ -148,8 +148,10 @@ const Home = () => {
   if (duration.aboveSixteen) {
     filteredCourses = filteredCourses.filter((course) => course.duration >= 16);
   }
+let coursesNotFoundInfo;
+if (filteredCourses.length == 0) {coursesNotFoundInfo = "No courses found. Try again."}
 
-
+console.log(filteredCourses)
   return (
     <>
       <SearchBar />
@@ -170,7 +172,11 @@ const Home = () => {
             isPending={isPending}
           />
         )}
-      </div>
+        <h1 className="notFoundInfo">{coursesNotFoundInfo}</h1>
+        </div>
+
+      
+      
       <div className="load__more__btn__wrapper">
         {visibleCourses < courses.length ? (
           <Button

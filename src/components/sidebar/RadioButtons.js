@@ -9,7 +9,7 @@ import { RatingFive, RatingFour, RatingThree, RatingTwo} from "./Rating"
 
 
 export default function RadioButtonsGroup() {
-  const [value, setValue] = React.useState('highest');
+  const [value, setValue] = React.useState('');
 
   const handleChange = (event) => {
     setValue(event.target.value);

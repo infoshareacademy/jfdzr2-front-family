@@ -45,13 +45,12 @@ export default function Sidebar(props) {
           id="panel1a-header"
           style={{ backgroundColor: "#edf2f4" }}
         >
-          <Typography className={classes.heading}>Ratings</Typography>
+          <Typography className={classes.heading}>Category</Typography>
         </AccordionSummary>
         <AccordionDetails style={{ backgroundColor: "#edf2f4" }}>
         
            
-              <RadioButtons />
-            
+        <CheckboxesTopic topic={props.topic} onChange={props.onTopicChange}/>
          
         </AccordionDetails>
       </Accordion>
@@ -67,14 +66,14 @@ export default function Sidebar(props) {
           aria-controls="panel2a-content"
           id="panel2b-header"
         >
-          <Typography className={classes.heading}>Category</Typography>
+          <Typography className={classes.heading}>Level</Typography>
         </AccordionSummary>
         <AccordionDetails>
         
-            
-              <CheckboxesTopic topic={props.topic} onChange={props.onTopicChange}/>
-            
-          
+
+        <CheckboxesLevel level={props.level} onChange={props.onLevelChange} />
+
+
         </AccordionDetails>
       </Accordion>
 
@@ -90,12 +89,12 @@ export default function Sidebar(props) {
           aria-controls="panel2a-content"
           id="panel2c-header"
         >
-          <Typography className={classes.heading}>Level</Typography>
+          <Typography className={classes.heading}>Price</Typography>
         </AccordionSummary>
         <AccordionDetails>
         
             
-              <CheckboxesLevel level={props.level} onChange={props.onLevelChange} />
+        <CheckboxesPrice />
             
         
         </AccordionDetails>
@@ -113,14 +112,14 @@ export default function Sidebar(props) {
           aria-controls="panel2a-content"
           id="panel2d-header"
         >
-          <Typography className={classes.heading}>Price</Typography>
+          <Typography className={classes.heading}>Duration</Typography>
         </AccordionSummary>
         <AccordionDetails>
-         
-            
-              <CheckboxesPrice />
            
+              
+              <CheckboxesDuration duration={props.duration} onChange={props.onDurationChange}/>
           
+
         </AccordionDetails>
       </Accordion>
 
@@ -136,12 +135,12 @@ export default function Sidebar(props) {
           aria-controls="panel2a-content"
           id="panel2e-header"
         >
-          <Typography className={classes.heading}>Course duration</Typography>
+          <Typography className={classes.heading}>Ratings</Typography>
         </AccordionSummary>
         <AccordionDetails>
          
             
-              <CheckboxesDuration duration={props.duration} onChange={props.onDurationChange}/>
+              <RadioButtons />    
             
          
         </AccordionDetails>

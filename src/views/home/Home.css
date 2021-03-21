@@ -17,3 +17,15 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+
+.notFoundInfo {
+    margin-top: 100px;
+    margin-left: -155px
+}
+
+@media screen and (max-width: 667px) {
+    .notFoundInfo{
+    margin-top: 30px;
+    margin-left: 0px;
+    }
+}
