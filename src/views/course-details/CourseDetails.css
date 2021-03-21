@@ -76,9 +76,9 @@
   border: 2px solid #18ac9d;
   background-color: #edf2f4;
   color: #18ac9d;
-  font-size: 0.938rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.025rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 300ms;
@@ -110,12 +110,12 @@
 .course__details h4:before{
   content: "";
   position: absolute;
-  top: calc(1.25ex);
-  left: calc(0.6ch);
+  top: calc(1.75ex);
+  left: calc(0.5ch);
   z-index: -1;
-  height: 50%;
+  height: 30%;
   width: 100%;
-  background-color: rgba(24, 172, 157, 0.65);
+  background-color: rgb(255, 159, 28, 0.85);
 }
 
 .course__details__description,
@@ -160,7 +160,6 @@
 .course__details__content ol li:before{
   content: counter(list-item) ".";
   padding-right: 5px;
-  color: #18ac9d;
   font-size: 1.375rem;
   font-weight: 500;
 }
@@ -252,7 +251,6 @@
   .course__details__info__rating{
     margin: 10px 0;
     font-size: 1rem;
-    color: #ff9f1c;
   }
 
   .course__details__info__category,

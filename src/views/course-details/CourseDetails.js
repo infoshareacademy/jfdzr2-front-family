@@ -88,10 +88,10 @@ export const CourseDetails = ({match: {params: {id}}}) => {
       <div className="course__details__goals">
         <h4>What you'll learn</h4>
         <ul>
-          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Gravida dictum fusce ut placerat orci.</li>
-          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Purus viverra accumsan in nisl nisi.</li>
-          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Risus commodo viverra maecenas accumsan lacus.</li>
-          <li><CheckIcon style={{marginRight: "5px", color: "#18ac9d"}}/>Egestas pretium aenean pharetra magna.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Gravida dictum fusce ut placerat orci.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Purus viverra accumsan in nisl nisi.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Risus commodo viverra maecenas accumsan lacus.</li>
+          <li><CheckIcon style={{marginRight: "5px"}}/>Egestas pretium aenean pharetra magna.</li>
         </ul>
       </div>
       <div className="course__details__reviews">
