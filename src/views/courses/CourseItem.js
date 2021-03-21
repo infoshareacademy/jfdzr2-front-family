@@ -4,11 +4,18 @@ import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart, MdShoppingCart } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { isCourseInCartSelector } from "../../reducers/selectors";
+import { addToCart } from "../../reducers/shopping-cart";
+import { NavLink } from 'react-router-dom';
 
 const CourseItem = ({ course }) => {
+    const dispatch = useDispatch();
+    const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
+    console.log(isCourseInCartSelector);
 
-    const handleAddToCart = (event) => {
+    const stopButtonPropagation = (event) => {
         event.stopPropagation();
         event.preventDefault();
     }
@@ -41,18 +48,39 @@ const CourseItem = ({ course }) => {
                         <p>{ course.price } PLN</p> :
                         <p>Free</p>
                     }
-                    <button 
-                        className="course__info__cart__btn" 
-                        title="Add to cart"
-                        onClick={(event) => handleAddToCart(event)}
-                    >
-                        <MdAddShoppingCart
-                            style={{
-                                paddingTop: "5px",
-                                fontSize: "25px"
-                            }}
-                        />
-                    </button>
+                    { isCourseInCart ?
+                        (
+                            <button 
+                                className="course__info__cart__btn--disabled" 
+                                title="Go to cart"
+                                disabled={true}
+                                >
+                                    <NavLink to="/cart">
+                                        <MdShoppingCart
+                                            style={{
+                                                paddingTop: "5px",
+                                                fontSize: "25px",
+                                                color: "#929292"
+                                            }}
+                                        />
+                                    </NavLink>
+                                </button>
+                        ) :
+                        (
+                            <button 
+                                className="course__info__cart__btn" 
+                                title="Add to cart"
+                                onClick={(event) => dispatch(addToCart(course, stopButtonPropagation(event)))}
+                            >
+                                <MdAddShoppingCart
+                                    style={{
+                                        paddingTop: "5px",
+                                        fontSize: "25px"
+                                    }}
+                                />
+                            </button>
+                        )
+                    }
                 </div>
             </Link>
         </div>
