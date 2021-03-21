@@ -23,7 +23,7 @@
 .course__details__name{
   margin-bottom: 30px;
   font-size: 1.375rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .course__details__info,
@@ -73,11 +73,12 @@
 .course__details__info__btn{
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid #18ac9d;
+  border: 2px solid #18ac9d;
   background-color: #edf2f4;
   color: #18ac9d;
-  font-size: 0.875rem;
+  font-size: 0.938rem;
   font-weight: 500;
+  letter-spacing: 0.05rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 300ms;
@@ -99,9 +100,22 @@
 }
 
 .course__details h4{
+  display: inline-flex;
+  position: relative;
   margin-bottom: 20px;
   font-size: 1.375rem;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+.course__details h4:before{
+  content: "";
+  position: absolute;
+  top: calc(1.25ex);
+  left: calc(1ch);
+  z-index: -1;
+  height: 50%;
+  width: 100%;
+  background-color: rgba(24, 172, 157, 0.65);
 }
 
 .course__details__description,
@@ -125,19 +139,30 @@
 
 .course__details__content ol,
 .course__details__goals ul{
-  list-style-position: inside;
+  list-style: none;
 }
 
 .course__details__content li,
 .course__details__goals li{
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 0.938rem;
   line-height: 1.375rem;
 }
 
-.course__details__reviews{
+.course__details__goals li{
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+
+.course__details__content ol li:before{
+  content: counter(list-item) ".";
+  padding-right: 5px;
+  color: #18ac9d;
+  font-size: 1.375rem;
+  font-weight: 500;
 }
 
 .course__details__review__wrapper{
@@ -171,6 +196,7 @@
 
 .course__details__review__content p{
   font-size: 0.938rem;
+  font-style: italic;
   line-height: 1.375rem;
 }
 
