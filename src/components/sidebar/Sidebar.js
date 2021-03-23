@@ -140,7 +140,7 @@ export default function Sidebar(props) {
         <AccordionDetails>
          
             
-              <RadioButtons />    
+              <RadioButtons rating={props.rating} onChange={props.onRatingChange}/>    
             
          
         </AccordionDetails>

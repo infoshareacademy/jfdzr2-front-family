@@ -44,7 +44,16 @@ const Home = () => {
     setDuration({ ...duration, [event.target.name]: event.target.checked });
   };
 
-  useEffect(() => {
+  const [rating, setRating] = useState('');
+
+  const handleRatingChange = (event) => {
+    setRating(event.target.value);
+    
+  };
+
+console.log(rating);
+  
+useEffect(() => {
     db.collection("courses")
       .get()
       .then((snapshot) => {
@@ -125,11 +134,15 @@ const Home = () => {
     );
   }
 
-
-let durationArray =[] ;
-if(duration.oneToFive || duration.sixToTen || duration.elevenToFifteen || duration.aboveSixteen){
-  durationArray.push(1);
-}
+  let durationArray = [];
+  if (
+    duration.oneToFive ||
+    duration.sixToTen ||
+    duration.elevenToFifteen ||
+    duration.aboveSixteen
+  ) {
+    durationArray.push(1);
+  }
 
   if (!duration.oneToFive && durationArray.length > 0) {
     filteredCourses = filteredCourses.filter(
@@ -150,13 +163,23 @@ if(duration.oneToFive || duration.sixToTen || duration.elevenToFifteen || durati
   }
 
   if (!duration.aboveSixteen && durationArray.length > 0) {
-      filteredCourses = filteredCourses.filter(
+    filteredCourses = filteredCourses.filter(
       (course) => course.length !== "longest"
     );
   }
 
-let coursesNotFoundInfo;
-if (filteredCourses.length == 0) {coursesNotFoundInfo = "No courses found. Try again."}
+  if (rating == "highest") {
+    filteredCourses = filteredCourses.filter((course) => course.rating > 4.1);
+  }
+
+  if (rating == "lowest") {
+    filteredCourses = filteredCourses.filter((course) => course.rating < 4.1);
+  }
+
+  let coursesNotFoundInfo;
+  if (filteredCourses.length == 0) {
+    coursesNotFoundInfo = "No courses found. Try again.";
+  }
 
 console.log(filteredCourses)
   return (
@@ -170,6 +193,8 @@ console.log(filteredCourses)
           onTopicChange={handleTopicChange}
           duration={duration}
           onDurationChange={handleDurationChange}
+          onRatingChange={handleRatingChange}
+          rating={rating}
         />
         {courses && (
           <CourseList
