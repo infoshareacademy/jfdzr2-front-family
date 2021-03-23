@@ -125,29 +125,36 @@ const Home = () => {
     );
   }
 
-  if (duration.oneToFive) {
-    filteredCourses = filteredCourses.filter((course) => course.duration < 5);
-  }
 
-  if (duration.oneToFive && duration.sixToTen) {
-    filteredCourses = filteredCourses.filter((course) => course.duration < 11);
-  }
+let durationArray =[] ;
+if(duration.oneToFive || duration.sixToTen || duration.elevenToFifteen || duration.aboveSixteen){
+  durationArray.push(1);
+}
 
-  if (duration.sixToTen) {
+  if (!duration.oneToFive && durationArray.length > 0) {
     filteredCourses = filteredCourses.filter(
-      (course) => course.duration >= 5 && course.duration < 11
+      (course) => course.length !== "shortest"
     );
   }
 
-  if (duration.elevenToFifteen) {
+  if (!duration.sixToTen && durationArray.length > 0) {
     filteredCourses = filteredCourses.filter(
-      (course) => course.duration >= 11 && course.duration < 16
+      (course) => course.length !== "short"
     );
   }
 
-  if (duration.aboveSixteen) {
-    filteredCourses = filteredCourses.filter((course) => course.duration >= 16);
+  if (!duration.elevenToFifteen && durationArray.length > 0) {
+    filteredCourses = filteredCourses.filter(
+      (course) => course.length !== "long"
+    );
   }
+
+  if (!duration.aboveSixteen && durationArray.length > 0) {
+      filteredCourses = filteredCourses.filter(
+      (course) => course.length !== "longest"
+    );
+  }
+
 let coursesNotFoundInfo;
 if (filteredCourses.length == 0) {coursesNotFoundInfo = "No courses found. Try again."}
 
@@ -167,18 +174,17 @@ console.log(filteredCourses)
         {courses && (
           <CourseList
             courses={filteredCourses}
-            title="Our Courses"
+            title={filteredCourses.length !== 0 ? "Our Courses" : "No courses found. Try again."}
             visibleCourses={visibleCourses}
             isPending={isPending}
           />
         )}
-        <h1 className="notFoundInfo">{coursesNotFoundInfo}</h1>
         </div>
 
       
       
       <div className="load__more__btn__wrapper">
-        {visibleCourses < courses.length ? (
+        {visibleCourses < filteredCourses.length ? (
           <Button
             variant="contained"
             color="inherit"
