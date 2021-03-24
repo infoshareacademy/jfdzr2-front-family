@@ -37,7 +37,7 @@ const ShoppingCart = () => {
                         <div className="cart__price__checkout">
                             <p>12.99 PLN</p>
                             <button title="Remove from cart">
-                                <BsTrash />
+                                <BsTrash className="trash-icon" />
                             </button>
                         </div>
                     </article>
@@ -52,7 +52,7 @@ const ShoppingCart = () => {
                         <div className="cart__price__checkout">
                             <p>15.99 PLN</p>
                             <button title="Remove from cart">
-                                <BsTrash />
+                                <BsTrash className="trash-icon" />
                             </button>
                         </div>
                     </article>
@@ -67,7 +67,7 @@ const ShoppingCart = () => {
                         <div className="cart__price__checkout">
                             <p>Free</p>
                             <button title="Remove from cart">
-                                <BsTrash />
+                                <BsTrash className="trash-icon" />
                             </button>
                         </div>
                     </article>

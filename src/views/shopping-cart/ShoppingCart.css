@@ -82,7 +82,21 @@
 }
 
 .cart__price__checkout button {
-    padding: 8px;
+    padding: 10px 8px 8px;
+    background-color: rgb(216, 216, 216);
+}
+
+.cart__price__checkout button:hover {
+    background-color: #E71D36;
+    color: #edf2f4;
+}
+
+.trash-icon {
+    transition: transform 0.3s;  
+}
+
+.trash-icon:hover {
+    transform: rotate(360deg);
 }
 
 .cart__course__title p:first-child {
