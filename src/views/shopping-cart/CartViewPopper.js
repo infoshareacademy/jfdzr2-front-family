@@ -87,32 +87,52 @@ export default function CartViewPopper() {
                         maxWidth: "350px"
                     }}
                 >
-                    <div className="cart__view__list">
-                        {courses.map(course => (
-                            <article className="cart__view__list__item" key={course.id}>
-                                <div>
-                                    <img src={course.image} alt="course image" />
+                    {courses.length > 0 ? 
+                        (
+                            <>
+                                <div className="cart__view__list">
+                                    {courses.map(course => (
+                                        <article className="cart__view__list__item" key={course.id}>
+                                            <div>
+                                                <img src={course.image} alt="course image" />
+                                            </div>
+                                            <div>
+                                                <p className="cart__view__list__item__title">{course.title}</p>
+                                                <p className="cart__view__list__item__author">by {course.author}</p>
+                                                {course.price > 0 ? 
+                                                    <p>{course.price} PLN</p> :                                      
+                                                    <p>Free</p>
+                                                }
+                                            </div>
+                                        </article>
+                                    ))}
                                 </div>
-                                <div>
-                                    <p className="cart__view__list__item__title">{course.title}</p>
-                                    <p className="cart__view__list__item__author">by {course.author}</p>
-                                    {course.price > 0 ? 
-                                        <p>{course.price} PLN</p> :                                      
-                                        <p>Free</p>
-                                    }
+                                <div className="checkout__wrapper">
+                                    <div className="checkout__total__price">
+                                        <p>Total:</p>
+                                        <p>{totalPrice} PLN</p>
+                                    </div>
+                                    <NavLink to="/cart" className="checkout__link">
+                                        <button>Go to cart</button>
+                                    </NavLink>
                                 </div>
-                            </article>
-                        ))}
-                    </div>
-                    <div className="checkout__wrapper">
-                        <div className="checkout__total__price">
-                            <p>Total:</p>
-                            <p>{totalPrice} PLN</p>
-                        </div>
-                        <NavLink to="/cart" className="checkout__link">
-                            <button>Go to cart</button>
-                        </NavLink>
-                    </div>
+                            </>
+                            
+                        ) :
+                        (
+                            <>
+                                <div className="cart__view__list--empty">
+                                    <p>Your cart is empty.</p>
+                                </div>
+                                <div className="checkout__wrapper">
+                                    <NavLink to="/" className="homepage__link">
+                                        <button>Keep shopping</button>
+                                    </NavLink>
+                                </div>
+                            </>   
+                        )
+                    }
+                    
                 </Typography>
             </Popover>
         </div>
