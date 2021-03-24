@@ -8,9 +8,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import './CartViewPopper.css';
-import CourseImage from "../../assets/img/banner_640.jpg";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { coursesInCartSelector, totalPriceOfCoursesInCartSelector } from "../../reducers/selectors";
 
 const StyledBadge = withStyles((theme) => ({
@@ -30,7 +29,6 @@ const StyledBadge = withStyles((theme) => ({
   }));
 
 export default function CartViewPopper() {
-    const dispatch = useDispatch();
     const courses = useSelector(coursesInCartSelector);
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
 
