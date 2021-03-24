@@ -84,6 +84,7 @@
 .cart__price__checkout button {
     padding: 10px 8px 8px;
     background-color: rgb(216, 216, 216);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .cart__price__checkout button:hover {
