@@ -4,12 +4,14 @@ import { NavLink } from "react-router-dom";
 import CourseImage from "../../assets/img/banner_640.jpg";
 import { BsTrash }  from "react-icons/bs"; 
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { coursesInCartSelector, totalPriceOfCoursesInCartSelector } from "../../reducers/selectors";
+import { removeFromCart } from '../../reducers/shopping-cart';
 
 const ShoppingCart = () => {
     const courses = useSelector(coursesInCartSelector);
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
+    const dispatch = useDispatch();
 
     return ( 
         <div className="cart__wrapper">
@@ -33,7 +35,10 @@ const ShoppingCart = () => {
                                             <p>{course.price} PLN</p> :                                      
                                             <p>Free</p>
                                         }
-                                        <button title="Remove from cart">
+                                        <button 
+                                            title="Remove from cart" 
+                                            onClick={() => dispatch(removeFromCart(course.id))}
+                                        >
                                             <BsTrash className="trash-icon" />
                                         </button>
                                     </div>
