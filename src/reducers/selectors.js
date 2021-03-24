@@ -16,3 +16,8 @@ export const isCourseInCartSelector = (courseID) => createSelector(
     coursesInCartIdsSelector,
     ids => ids.includes(courseID)
 )
+
+export const totalPriceOfCoursesInCartSelector = createSelector(
+    coursesInCartPricesSelector,
+    (prices) => prices.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+)
