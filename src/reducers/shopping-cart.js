@@ -18,7 +18,7 @@ export const shoppingCart = (state = initialState, action) => {
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                courses: state.courses.filter(course => course.id != action.payload)
+                courses: state.courses.filter(course => course.id !== action.payload)
             }
         default:
             return state
