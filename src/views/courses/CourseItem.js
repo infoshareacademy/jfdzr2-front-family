@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 const CourseItem = ({ course }) => {
     const dispatch = useDispatch();
     const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
-    console.log(isCourseInCartSelector);
+    // console.log(isCourseInCartSelector);
 
     const stopButtonPropagation = (event) => {
         event.stopPropagation();
