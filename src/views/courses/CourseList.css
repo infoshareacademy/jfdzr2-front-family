@@ -93,6 +93,22 @@
     transition: all 0.3s;
 }
 
+.course__info__cart__btn:hover {
+    background-color: #18ac9d;
+    color: #edf2f4;
+}
+
+.cart_icon {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #929292;
+    transition: color 0.3s;
+}
+
+.cart_icon:hover {
+    color: #edf2f4;
+}
+
 .course__info__cart__btn--disabled {
     display: none;
     width: 38px;
@@ -103,12 +119,11 @@
     background-color: #edf2f4;
     color: #929292;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 }
 
-.course__info__cart__btn:hover {
-    background-color: #18ac9d;
-    color: #edf2f4;
+.course__info__cart__btn--disabled:hover {
+    background-color: #929292;
 }
 
 .course__details__link:hover > .course__info__price > .course__info__cart__btn {

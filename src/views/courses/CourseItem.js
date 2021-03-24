@@ -53,15 +53,10 @@ const CourseItem = ({ course }) => {
                             <button 
                                 className="course__info__cart__btn--disabled" 
                                 title="Go to cart"
-                                disabled={true}
                                 >
                                     <NavLink to="/cart">
                                         <MdShoppingCart
-                                            style={{
-                                                paddingTop: "5px",
-                                                fontSize: "25px",
-                                                color: "#929292"
-                                            }}
+                                            className="cart_icon"
                                         />
                                     </NavLink>
                                 </button>
