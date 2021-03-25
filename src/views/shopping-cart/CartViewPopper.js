@@ -90,19 +90,21 @@ export default function CartViewPopper() {
                             <>
                                 <div className="cart__view__list">
                                     {courses.map(course => (
-                                        <article className="cart__view__list__item" key={course.id}>
-                                            <div>
-                                                <img src={course.image} alt="course image" />
-                                            </div>
-                                            <div>
-                                                <p className="cart__view__list__item__title">{course.title}</p>
-                                                <p className="cart__view__list__item__author">by {course.author}</p>
-                                                {course.price > 0 ? 
-                                                    <p>{course.price} PLN</p> :                                      
-                                                    <p>Free</p>
-                                                }
-                                            </div>
-                                        </article>
+                                        <NavLink to={`/course-details/${course.id}`} className="course__details__link" onClick={handleClose}>
+                                            <article className="cart__view__list__item" key={course.id}>
+                                                <div>
+                                                    <img src={course.image} alt="course image" />
+                                                </div>
+                                                <div>
+                                                    <p className="cart__view__list__item__title">{course.title}</p>
+                                                    <p className="cart__view__list__item__author">by {course.author}</p>
+                                                    {course.price > 0 ? 
+                                                        <p>{course.price} PLN</p> :                                      
+                                                        <p>Free</p>
+                                                    }
+                                                </div>
+                                            </article>
+                                        </NavLink>
                                     ))}
                                 </div>
                                 <div className="checkout__wrapper">
