@@ -111,7 +111,7 @@ export default function CartViewPopper() {
                                         <p>{totalPrice} PLN</p>
                                     </div>
                                     <NavLink to="/cart" className="checkout__link">
-                                        <button>Go to cart</button>
+                                        <button onClick={handleClose}>Go to cart</button>
                                     </NavLink>
                                 </div>
                             </>
