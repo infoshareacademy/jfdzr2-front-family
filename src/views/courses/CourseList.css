@@ -41,6 +41,7 @@
 }
 
 .course__image img {
+    margin-left: 20px;
     width: 300px;
     max-height: 80%;
     object-fit: cover;
@@ -161,6 +162,7 @@
     }
 
     .course__image img {
+        margin-left: 0;
         min-width: 100%;
         min-height: 200px;
     }
