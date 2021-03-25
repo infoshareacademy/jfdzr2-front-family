@@ -132,6 +132,11 @@
     font-weight: bold;
 }
 
+.course__details__link {
+    text-decoration: none;
+    color: initial;
+}
+
 @media screen and (max-width: 1284px) {
     .cart__wrapper h2 {
         max-width: 75%;

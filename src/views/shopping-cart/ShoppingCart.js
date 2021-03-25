@@ -22,14 +22,16 @@ const ShoppingCart = () => {
                     <main className="shopping__cart__container">
                         <section className="shopping__cart__list">
                             {courses.map(course => (
-                                <article className="shopping__cart__list__item">
-                                    <div className="cart__summary__info">
-                                        <img src={course.image} alt="course image"/>
-                                        <div className="cart__course__title">
-                                            <p>{course.title}</p>
-                                            <p>by {course.author}</p>
+                                <article className="shopping__cart__list__item" key={course.id}>
+                                    <NavLink to={`/course-details/${course.id}`} className="course__details__link">
+                                        <div className="cart__summary__info">
+                                            <img src={course.image} alt="course image"/>
+                                            <div className="cart__course__title">
+                                                <p>{course.title}</p>
+                                                <p>by {course.author}</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                     <div className="cart__price__checkout">
                                         {course.price > 0 ? 
                                             <p>{course.price} PLN</p> :                                      
