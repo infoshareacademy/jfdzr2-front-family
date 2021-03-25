@@ -51,7 +51,7 @@ const CourseItem = ({ course }) => {
                     { isCourseInCart ?
                         (
                             <button 
-                                className="course__info__cart__btn--disabled" 
+                                className="course__info__cart__btn" 
                                 title="Go to cart"
                                 >
                                     <NavLink to="/cart">

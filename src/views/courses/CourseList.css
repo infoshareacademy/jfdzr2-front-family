@@ -101,29 +101,12 @@
 .cart_icon {
     padding-top: 5px;
     font-size: 25px;
-    color: #929292;
+    color: #18ac9d;
     transition: color 0.3s;
 }
 
 .cart_icon:hover {
     color: #edf2f4;
-}
-
-.course__info__cart__btn--disabled {
-    display: none;
-    width: 38px;
-    height: 38px;
-    margin-bottom: 25px;
-    border: 1px solid #929292;
-    border-radius: 50%;
-    background-color: #edf2f4;
-    color: #929292;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.course__info__cart__btn--disabled:hover {
-    background-color: #929292;
 }
 
 .course__details__link:hover > .course__info__price > .course__info__cart__btn {
