@@ -90,8 +90,13 @@ export default function CartViewPopper() {
                             <>
                                 <div className="cart__view__list">
                                     {courses.map(course => (
-                                        <NavLink to={`/course-details/${course.id}`} className="course__details__link" onClick={handleClose}>
-                                            <article className="cart__view__list__item" key={course.id}>
+                                        <NavLink 
+                                            to={`/course-details/${course.id}`}
+                                            className="course__details__link" 
+                                            onClick={handleClose} 
+                                            key={course.id}
+                                        >
+                                            <article className="cart__view__list__item">
                                                 <div>
                                                     <img src={course.image} alt="course image" />
                                                 </div>
