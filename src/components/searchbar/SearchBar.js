@@ -1,8 +1,11 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
+import { useState } from 'react';
 import "./SearchBar.css";
 
-export const SearchBar = () => {
+export const SearchBar = ({onFilterChange}) => {
+  const [filter, setFilter] = useState('');
+
   const BarStyling = {
     width: "47%",
     background: "##ffffff",
@@ -10,6 +13,12 @@ export const SearchBar = () => {
     padding: "0.5rem",
     marginTop: "50px",
   };
+  
+  const handleOnChange = (event) => {
+    setFilter(event.target.value);
+    onFilterChange(event.target.value)
+
+  }
 
   return (
     <form className="FormSearch">
@@ -17,8 +26,9 @@ export const SearchBar = () => {
         type="text"
         style={BarStyling}
         key="random1"
-        
-        placeholder={"search course"}
+        value={filter}
+        onChange={handleOnChange}
+        placeholder={"Search by name"}
         name="search"
       />
       <button type="submit" className="SearchButton">

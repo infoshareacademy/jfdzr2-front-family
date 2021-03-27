@@ -11,6 +11,11 @@ const Home = () => {
   const [courses, setCourses] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [visibleCourses, setVisibleCourses] = useState(4);
+  const [filter, setFilter] = useState('');
+
+  const handleOnFilterChange = (filterText) => {
+    setFilter(filterText);
+  };
 
   const [level, setLevel] = useState({
     beginner: false,
@@ -192,12 +197,15 @@ useEffect(() => {
     filteredCourses = filteredCourses.filter((course) => course.price !== 0);
   }
 
+  filteredCourses = 
+  filteredCourses.filter((course) => course.title.toLowerCase().includes(filter.toLowerCase()))
+
   let noCoursesFound = {}
 
 console.log(filteredCourses)
   return (
     <>
-      <SearchBar />
+      <SearchBar onFilterChange={handleOnFilterChange}/>
       <div className="home__wrapper">
         <Sidebar
           level={level}
