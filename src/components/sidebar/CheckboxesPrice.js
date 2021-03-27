@@ -16,29 +16,15 @@ import { db } from '../../services/firebase-config';
 //   checked: {},
 // })((props) => <Checkbox color="default" {...props} />);
 
-export default function CheckboxesPrice() {
-  const [state, setState] = React.useState({
-    free: false,
-    paid: false,
-
-  });
-
-  const handleChange = (event) => {
-  
-    setState({ ...state, [event.target.name]: event.target.checked });
-
-    console.log(state)
-  };
-
-  const { free, paid } = state;
+export default function CheckboxesPrice(props) {
 
   return (
     <>
       <FormControlLabel
         control={
           <Checkbox
-            checked={paid}
-            onChange={handleChange}
+            checked={props.price.paid}
+            onChange={props.onChange}
             name="paid"
           />
         }
@@ -47,8 +33,8 @@ export default function CheckboxesPrice() {
       <FormControlLabel
         control={
           <Checkbox
-            checked={free}
-            onChange={handleChange}
+            checked={props.price.free}
+            onChange={props.onChange}
             name="free"
           />
         }

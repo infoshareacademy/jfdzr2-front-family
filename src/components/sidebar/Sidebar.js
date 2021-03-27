@@ -94,7 +94,7 @@ export default function Sidebar(props) {
         <AccordionDetails>
         
             
-        <CheckboxesPrice />
+        <CheckboxesPrice price={props.price} onChange={props.onPriceChange}/>
             
         
         </AccordionDetails>

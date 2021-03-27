@@ -48,10 +48,18 @@ const Home = () => {
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
-    
   };
 
-console.log(rating);
+  const [price, setPrice] = useState({
+    free: false,
+    paid: false,
+  });
+
+  const handleOnPriceChange = (event) => {
+    setPrice({ ...price, [event.target.name]: event.target.checked });
+    console.log(price)
+  };
+
   
 useEffect(() => {
     db.collection("courses")
@@ -176,10 +184,15 @@ useEffect(() => {
     filteredCourses = filteredCourses.filter((course) => course.rating < 4.1);
   }
 
-  let coursesNotFoundInfo;
-  if (filteredCourses.length == 0) {
-    coursesNotFoundInfo = "No courses found. Try again.";
+  if (price.free && !price.paid) {
+    filteredCourses = filteredCourses.filter((course) => course.price === 0);
   }
+
+  if (price.paid && !price.free) {
+    filteredCourses = filteredCourses.filter((course) => course.price !== 0);
+  }
+
+  let noCoursesFound = {}
 
 console.log(filteredCourses)
   return (
@@ -195,6 +208,8 @@ console.log(filteredCourses)
           onDurationChange={handleDurationChange}
           onRatingChange={handleRatingChange}
           rating={rating}
+          onPriceChange={handleOnPriceChange}
+          price={price}
         />
         {courses && (
           <CourseList
@@ -206,8 +221,6 @@ console.log(filteredCourses)
         )}
         </div>
 
-      
-      
       <div className="load__more__btn__wrapper">
         {visibleCourses < filteredCourses.length ? (
           <Button
