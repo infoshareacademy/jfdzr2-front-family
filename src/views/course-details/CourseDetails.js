@@ -19,14 +19,14 @@ export const CourseDetails = ({match: {params: {id}}}) => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const isCourseInCart = useSelector(isCourseInCartSelector(courseDetails.id))
-  console.log(isCourseInCartSelector)
+  // console.log(isCourseInCartSelector)
 
   useEffect(() => {
     db.collection('courses').get()
       .then((snapshot) => {
         snapshot.docs.map(doc => {
           if(id === doc.id) {
-            setCourseDetails(doc.data());
+            setCourseDetails({id: doc.id, ...doc.data()});
             setLoading(false);
           }
         })
