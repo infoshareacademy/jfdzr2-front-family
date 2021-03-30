@@ -24,7 +24,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
   useEffect(() => {
     db.collection('courses').get()
       .then((snapshot) => {
-        snapshot.docs.map(doc => { 
+        snapshot.docs.forEach(doc => { 
           if(id === doc.id) {
             setCourseDetails({id: doc.id, ...doc.data()});
             setLoading(false);
