@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
@@ -31,6 +31,7 @@ const StyledBadge = withStyles((theme) => ({
 export default function CartViewPopper() {
     const courses = useSelector(coursesInCartSelector);
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
+    let match = useRouteMatch({path: '/cart'});
 
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -117,12 +118,14 @@ export default function CartViewPopper() {
                                         <p>Total:</p>
                                         <p>{totalPrice} PLN</p>
                                     </div>
-                                    <NavLink to="/cart" className="checkout__link">
-                                        <button onClick={handleClose}>Go to cart</button>
-                                    </NavLink>
+                                    {
+                                        !match && 
+                                        <NavLink to="/cart" className="checkout__link">
+                                            <button onClick={handleClose}>Go to cart</button>
+                                        </NavLink>
+                                    }                                   
                                 </div>
-                            </>
-                            
+                            </>                        
                         ) :
                         (
                             <>
