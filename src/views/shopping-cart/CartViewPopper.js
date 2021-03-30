@@ -99,7 +99,7 @@ export default function CartViewPopper() {
                                         >
                                             <article className="cart__view__list__item">
                                                 <div>
-                                                    <img src={course.image} alt="course image" />
+                                                    <img src={course.image} alt="course item" />
                                                 </div>
                                                 <div>
                                                     <p className="cart__view__list__item__title">{course.title}</p>

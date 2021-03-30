@@ -24,7 +24,7 @@ const CourseItem = ({ course }) => {
         <div className="course__tile"> 
             <Link to={`/course-details/${course.id}`} className="course__details__link"> 
                 <div className="course__image">
-                    <img src={ course.image } alt="course image" />
+                    <img src={ course.image } alt="course item" />
                 </div>
                 <div className="course__info">
                     <h3>{ course.title }</h3>

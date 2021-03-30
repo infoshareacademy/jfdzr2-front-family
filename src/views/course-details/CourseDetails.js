@@ -24,7 +24,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
   useEffect(() => {
     db.collection('courses').get()
       .then((snapshot) => {
-        snapshot.docs.map(doc => {
+        snapshot.docs.map(doc => { 
           if(id === doc.id) {
             setCourseDetails({id: doc.id, ...doc.data()});
             setLoading(false);
@@ -82,7 +82,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
           </div>
         </div>
         <div className="course__details__image">
-          <img src={courseDetails.image} alt="Course image"/>
+          <img src={courseDetails.image} alt="course item"/>
         </div>
       </div>
       <div className="course__details__description">
