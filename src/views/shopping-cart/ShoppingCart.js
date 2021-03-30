@@ -1,7 +1,6 @@
 import "./ShoppingCart.css";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { NavLink } from "react-router-dom";
-import CourseImage from "../../assets/img/banner_640.jpg";
 import { BsTrash }  from "react-icons/bs"; 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,7 +24,7 @@ const ShoppingCart = () => {
                                 <article className="shopping__cart__list__item" key={course.id}>
                                     <NavLink to={`/course-details/${course.id}`} className="course__details__link">
                                         <div className="cart__summary__info">
-                                            <img src={course.image} alt="course image"/>
+                                            <img src={course.image} alt="course item"/>
                                             <div className="cart__course__title">
                                                 <p>{course.title}</p>
                                                 <p>by {course.author}</p>
