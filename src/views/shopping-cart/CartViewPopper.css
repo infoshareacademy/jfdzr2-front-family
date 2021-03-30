@@ -41,11 +41,16 @@
     font-weight: bold;
 }
 
-.checkout__total__price {
+.checkout__total__price, .checkout__total__price--no__button {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
     font-size: 18px;
+}
+
+.checkout__total__price--no__button {
+    margin-top: 13px;
+    text-transform: uppercase;
 }
 
 .checkout__total__price p:first-child {

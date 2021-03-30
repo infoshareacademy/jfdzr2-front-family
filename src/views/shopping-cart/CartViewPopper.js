@@ -114,7 +114,7 @@ export default function CartViewPopper() {
                                     ))}
                                 </div>
                                 <div className="checkout__wrapper">
-                                    <div className="checkout__total__price">
+                                    <div className={!match ? "checkout__total__price" : "checkout__total__price--no__button"}>
                                         <p>Total:</p>
                                         <p>{totalPrice} PLN</p>
                                     </div>
