@@ -31,7 +31,7 @@ export const CourseDetails = ({match: {params: {id}}}) => {
           }
         })
       });
-  }, []);
+  }, [id]);
 
   if(loading) {
     return(
