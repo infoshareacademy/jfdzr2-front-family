@@ -7,8 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers/all-reducers';
+import { loadFromLocalStorage, saveToLocalStorage} from './components/LocalStorage';
 
-const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const persistedState = loadFromLocalStorage();
+
+const store = createStore(
+  allReducers,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+store.subscribe(() => {
+  saveToLocalStorage(store.getState());
+})
 
 ReactDOM.render(
   <React.StrictMode>
