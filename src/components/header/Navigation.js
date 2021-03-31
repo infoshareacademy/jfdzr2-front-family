@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from "react";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
 
 import logoBlack from "../../assets/img/logo_black.svg";
 
@@ -26,7 +26,7 @@ export const Navigation = () => {
     <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
-      <NavLink to="/cart"><ShoppingCartIcon /></NavLink>
+      <CartViewPopper />
     </div>
   </nav>
 }

@@ -1,4 +1,5 @@
 import "./CourseDetails.css";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { db } from '../../services/firebase-config';
 import { GoCalendar } from "react-icons/go";
@@ -9,21 +10,28 @@ import CheckIcon from '@material-ui/icons/Check';
 import user_1 from "../../assets/img/user_1.jpg";
 import user_2 from "../../assets/img/user_2.jpg";
 
+import { useDispatch, useSelector } from "react-redux";
+import { isCourseInCartSelector } from "../../reducers/selectors";
+import { addToCart } from "../../reducers/shopping-cart";
+
 export const CourseDetails = ({match: {params: {id}}}) => {
   const [courseDetails, setCourseDetails] = useState({});
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const isCourseInCart = useSelector(isCourseInCartSelector(courseDetails.id))
+  // console.log(isCourseInCartSelector)
 
   useEffect(() => {
     db.collection('courses').get()
       .then((snapshot) => {
-        snapshot.docs.map(doc => {
+        snapshot.docs.forEach(doc => { 
           if(id === doc.id) {
-            setCourseDetails(doc.data());
+            setCourseDetails({id: doc.id, ...doc.data()});
             setLoading(false);
           }
         })
       });
-  }, []);
+  }, [id]);
 
   if(loading) {
     return(
@@ -59,12 +67,22 @@ export const CourseDetails = ({match: {params: {id}}}) => {
                 ? <p className="course__details__info__price">PLN {courseDetails.price}</p>
                 : <p className="course__details__info__price">Free</p>
               }
-              <button className="course__details__info__btn">Add to cart</button>
+              {isCourseInCart 
+              ? <NavLink to="/cart">
+                <button className="course__details__info__btn">Go to cart</button>
+              </NavLink>
+              : <button 
+                  className="course__details__info__btn"
+                  onClick={() => dispatch(addToCart(courseDetails))}
+                >
+                  Add to cart
+                </button>
+              }
             </div>
           </div>
         </div>
         <div className="course__details__image">
-          <img src={courseDetails.image} alt="Course image"/>
+          <img src={courseDetails.image} alt="course item"/>
         </div>
       </div>
       <div className="course__details__description">
