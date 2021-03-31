@@ -3,7 +3,6 @@ import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
-import { Link } from "react-router-dom";
 import { MdAddShoppingCart, MdShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { isCourseInCartSelector } from "../../reducers/selectors";
@@ -13,7 +12,6 @@ import { NavLink } from 'react-router-dom';
 const CourseItem = ({ course }) => {
     const dispatch = useDispatch();
     const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
-    // console.log(isCourseInCartSelector);
 
     const stopButtonPropagation = (event) => {
         event.stopPropagation();
@@ -22,7 +20,7 @@ const CourseItem = ({ course }) => {
 
     return (
         <div className="course__tile"> 
-            <Link to={`/course-details/${course.id}`} className="course__details__link"> 
+            <NavLink to={`/course-details/${course.id}`} className="course__details__link"> 
                 <div className="course__image">
                     <img src={ course.image } alt="course item" />
                 </div>
@@ -77,7 +75,7 @@ const CourseItem = ({ course }) => {
                         )
                     }
                 </div>
-            </Link>
+            </NavLink>
         </div>
      );
 }

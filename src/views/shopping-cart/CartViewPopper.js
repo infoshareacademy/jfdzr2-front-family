@@ -81,6 +81,7 @@ export default function CartViewPopper() {
                 }}
             >
                 <Typography 
+                    component="div"
                     className={classes.typography}
                     style={{
                         maxWidth: "350px"
