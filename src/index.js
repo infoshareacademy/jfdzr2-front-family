@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers/all-reducers';
-import { loadFromLocalStorage, saveToLocalStorage} from './components/LocalStorage';
+import { loadFromLocalStorage, saveToLocalStorage} from './helpers/LocalStorage';
 
 const persistedState = loadFromLocalStorage();
 

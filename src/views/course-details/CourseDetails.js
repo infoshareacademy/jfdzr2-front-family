@@ -19,7 +19,6 @@ export const CourseDetails = ({match: {params: {id}}}) => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const isCourseInCart = useSelector(isCourseInCartSelector(courseDetails.id))
-  // console.log(isCourseInCartSelector)
 
   useEffect(() => {
     db.collection('courses').get()
