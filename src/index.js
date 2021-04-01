@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers/all-reducers';
 import { loadFromLocalStorage, saveToLocalStorage} from './helpers/LocalStorage';
+import throttle from 'lodash.throttle';
 
 const persistedState = loadFromLocalStorage();
 
@@ -17,9 +18,9 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-store.subscribe(() => {
-  saveToLocalStorage(store.getState());
-})
+store.subscribe(
+	throttle(() => saveToLocalStorage(store.getState()), 1000)
+);
 
 ReactDOM.render(
   <React.StrictMode>
