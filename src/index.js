@@ -19,8 +19,12 @@ const store = createStore(
 )
 
 store.subscribe(
-	throttle(() => saveToLocalStorage(store.getState()), 1000)
-);
+	throttle(() => {
+    const { shoppingCart } = store.getState()
+    saveToLocalStorage({
+      shoppingCart
+    })
+  }, 1000));
 
 ReactDOM.render(
   <React.StrictMode>
