@@ -6,13 +6,22 @@ import "./Home.css";
 import Button from "@material-ui/core/Button";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { SearchBar } from "../../components/searchbar/SearchBar";
+import Filter from "../../components/sidebar/Filter"
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [visibleCourses, setVisibleCourses] = useState(4);
   const [filter, setFilter] = useState('');
+  const [visibility, setVisibility] = useState(true);
 
+  const handleFilterChange = () => {
+    setVisibility(false);
+   
+  };
+
+  console.log(visibility);
+ 
   const handleOnFilterChange = (filterText) => {
     setFilter(filterText);
   };
@@ -207,6 +216,7 @@ console.log(filteredCourses)
     <>
       <SearchBar onFilterChange={handleOnFilterChange}/>
       <div className="home__wrapper">
+       { visibility ?
         <Sidebar
           level={level}
           onLevelChange={handleLevelChange}
@@ -218,7 +228,8 @@ console.log(filteredCourses)
           rating={rating}
           onPriceChange={handleOnPriceChange}
           price={price}
-        />
+        /> : null}
+        <div className="course__column">
         {courses && (
           <CourseList
             courses={filteredCourses}
@@ -227,6 +238,7 @@ console.log(filteredCourses)
             isPending={isPending}
           />
         )}
+        </div>
         </div>
 
       <div className="load__more__btn__wrapper">

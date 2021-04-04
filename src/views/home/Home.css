@@ -20,7 +20,12 @@
 
 .notFoundInfo {
     margin-top: 50px;
-    max-width: 900px;
+}
+
+@media screen and (min-width: 667px){
+    .course__column{
+    width: 900px;
+}
 }
 
 @media screen and (max-width: 667px) {
