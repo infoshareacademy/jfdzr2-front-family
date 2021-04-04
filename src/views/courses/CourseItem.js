@@ -3,58 +3,79 @@ import { GoCalendar } from "react-icons/go";
 import { GrSteps } from "react-icons/gr";
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 import { VscFolderOpened } from "react-icons/vsc";
-import { Link } from "react-router-dom";
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart, MdShoppingCart } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { isCourseInCartSelector } from "../../reducers/selectors";
+import { addToCart } from "../../reducers/shopping-cart";
+import { NavLink } from 'react-router-dom';
 
 const CourseItem = ({ course }) => {
+    const dispatch = useDispatch();
+    const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
 
-    const handleAddToCart = (event) => {
+    const stopButtonPropagation = (event) => {
         event.stopPropagation();
         event.preventDefault();
     }
 
     return (
         <div className="course__tile"> 
-            <Link to={`/course-details/${course.id}`}className="course__details__link"> 
-                    <div className="course__image">
-                        <img src={ course.image } alt="course image" />
+            <NavLink to={`/course-details/${course.id}`} className="course__details__link"> 
+                <div className="course__image">
+                    <img src={ course.image } alt="course item" />
+                </div>
+                <div className="course__info">
+                    <h3>{ course.title }</h3>
+                    <p className="course__info__summary">{ course.summary }</p>
+                    <p className="course__info__category"><VscFolderOpened /> { course.category }</p>
+                    <p className="course__info__author">by { course.author }</p>
+                    <div style={{display: "flex"}}>
+                        <p className="course__info__rating">{ course.rating }</p>
+                        {course.rating > 4 ? 
+                            (<p className="course__info__rating" style={{marginLeft: "5px"}}><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf/></p>) :
+                            (<p className="course__info__rating" style={{marginLeft: "5px"}}><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf /> <BsStar/></p>)
+                        }
                     </div>
-                    <div className="course__info">
-                        <h3>{ course.title }</h3>
-                        <p className="course__info__summary">{ course.summary }</p>
-                        <p className="course__info__category"><VscFolderOpened /> { course.category }</p>
-                        <p className="course__info__author">by { course.author }</p>
-                        <div style={{display: "flex"}}>
-                            <p className="course__info__rating">{ course.rating }</p>
-                                {course.rating > 4 ? 
-                                    (<p className="course__info__rating" style={{marginLeft: "5px"}}><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf/></p>) :
-                                    (<p className="course__info__rating" style={{marginLeft: "5px"}}><BsStarFill /> <BsStarFill /> <BsStarFill /> <BsStarHalf /> <BsStar/></p>)
-                                }
-                        </div>
-                        <div className="course__info__time__and__level">
-                            <p><GoCalendar /> { course.duration }h</p>
-                            <p><GrSteps /> { course.level }</p>
-                        </div>
+                    <div className="course__info__time__and__level">
+                        <p><GoCalendar /> { course.duration }h</p>
+                        <p><GrSteps /> { course.level }</p>
                     </div>
-                        <div className="course__info__price">
-                            {typeof course.price === "number" ?
-                                <p>{ course.price } PLN</p> :
-                                <p>{ course.price }</p>
-                            }
+                </div>
+                <div className="course__info__price">
+                    { course.price > 0 ?
+                        <p>{ course.price } PLN</p> :
+                        <p>Free</p>
+                    }
+                    { isCourseInCart ?
+                        (
+                            <button 
+                                className="course__info__cart__btn" 
+                                title="Go to cart"
+                                >
+                                    <NavLink to="/cart">
+                                        <MdShoppingCart
+                                            className="cart_icon"
+                                        />
+                                    </NavLink>
+                                </button>
+                        ) :
+                        (
                             <button 
                                 className="course__info__cart__btn" 
                                 title="Add to cart"
-                                onClick={(event) => handleAddToCart(event)}
+                                onClick={(event) => dispatch(addToCart(course, stopButtonPropagation(event)))}
                             >
-                            <MdAddShoppingCart
-                                style={{
-                                    paddingTop: "5px",
-                                    fontSize: "25px"
+                                <MdAddShoppingCart
+                                    style={{
+                                        paddingTop: "5px",
+                                        fontSize: "25px"
                                     }}
-                            />
+                                />
                             </button>
-                        </div>
-            </Link>
+                        )
+                    }
+                </div>
+            </NavLink>
         </div>
      );
 }

@@ -4,18 +4,23 @@ import Home from '../src/views/home/Home';
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { CourseDetails } from './views/course-details/CourseDetails';
+import ShoppingCart from './views/shopping-cart/ShoppingCart';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
       <Router>
-        <Route>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/course-details/:id" component={CourseDetails} />
-          </Switch>
-          <Footer />
-        </Route>
+        <ScrollToTop>
+          <Route>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/course-details/:id" component={CourseDetails} />
+              <Route path="/cart" component={ShoppingCart} />
+            </Switch>
+            <Footer />
+          </Route>
+        </ScrollToTop>
       </Router>
   )
 }

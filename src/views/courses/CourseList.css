@@ -41,6 +41,7 @@
 }
 
 .course__image img {
+    margin-left: 20px;
     width: 300px;
     max-height: 80%;
     object-fit: cover;
@@ -98,7 +99,22 @@
     color: #edf2f4;
 }
 
+.cart_icon {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #18ac9d;
+    transition: color 0.3s;
+}
+
+.cart_icon:hover {
+    color: #edf2f4;
+}
+
 .course__details__link:hover > .course__info__price > .course__info__cart__btn {
+    display: block;
+}
+
+.course__details__link:hover > .course__info__price > .course__info__cart__btn--disabled {
     display: block;
 }
 
@@ -146,8 +162,9 @@
     }
 
     .course__image img {
-        min-width: 100%;
+        margin-left: 0;
         min-height: 200px;
+        width: 100%;
     }
 
     .course__info__price {
