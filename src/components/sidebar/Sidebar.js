@@ -12,7 +12,7 @@ import CheckboxesTopic from "./CheckboxesTopic";
 import CheckboxesLevel from "./CheckboxesLevel";
 import CheckboxesPrice from "./CheckboxesPrice";
 import CheckboxesDuration from "./CheckboxesDuration";
-import Filter from "./Filter"
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,6 @@ export default function Sidebar(props) {
 
   return (
     <div className={classes.root}>
-<Filter/>
       <Accordion
         style={{
           boxShadow: "none",

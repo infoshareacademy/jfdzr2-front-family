@@ -6,22 +6,23 @@ import "./Home.css";
 import Button from "@material-ui/core/Button";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { SearchBar } from "../../components/searchbar/SearchBar";
-import Filter from "../../components/sidebar/Filter"
+import  Filter  from "../../components/sidebar/Filter"
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [visibleCourses, setVisibleCourses] = useState(4);
   const [filter, setFilter] = useState('');
-  const [visibility, setVisibility] = useState(true);
+  // const [visibility, setVisibility] = useState(true);
 
-  const handleFilterChange = () => {
-    setVisibility(false);
-   
-  };
+  const [countFilters, setCountFilters] = useState(0);
 
-  console.log(visibility);
- 
+// const handleFilterChange = () => {
+//     setVisibility(false);
+//   };
+
+ let numberChosen = 0; 
+
   const handleOnFilterChange = (filterText) => {
     setFilter(filterText);
   };
@@ -34,6 +35,8 @@ const Home = () => {
 
   const handleLevelChange = (event) => {
     setLevel({ ...level, [event.target.name]: event.target.checked });
+    if(event.target.checked){setCountFilters(countFilters+1)};
+    if(!event.target.checked){setCountFilters(countFilters-1)}
   };
 
   const [topic, setTopic] = useState({
@@ -45,6 +48,8 @@ const Home = () => {
 
   const handleTopicChange = (event) => {
     setTopic({ ...topic, [event.target.name]: event.target.checked });
+    if(event.target.checked){setCountFilters(countFilters+1)};
+    if(!event.target.checked){setCountFilters(countFilters-1)}
   };
 
   const [duration, setDuration] = useState({
@@ -56,10 +61,12 @@ const Home = () => {
 
   const handleDurationChange = (event) => {
     setDuration({ ...duration, [event.target.name]: event.target.checked });
+    if(event.target.checked){setCountFilters(countFilters+1)};
+    if(!event.target.checked){setCountFilters(countFilters-1)}
   };
 
   const [rating, setRating] = useState('');
-
+  
   const handleRatingChange = (event) => {
     setRating(event.target.value);
   };
@@ -71,9 +78,9 @@ const Home = () => {
 
   const handleOnPriceChange = (event) => {
     setPrice({ ...price, [event.target.name]: event.target.checked });
-    console.log(price)
+    if(event.target.checked){setCountFilters(countFilters+1)};
+    if(!event.target.checked){setCountFilters(countFilters-1)}
   };
-
   
 useEffect(() => {
     db.collection("courses")
@@ -211,12 +218,12 @@ useEffect(() => {
 
   let noCoursesFound = {}
 
-console.log(filteredCourses)
   return (
     <>
       <SearchBar onFilterChange={handleOnFilterChange}/>
       <div className="home__wrapper">
-       { visibility ?
+        <div className="sidebar__wrapper">
+      <Filter numberOfFilters={rating ? countFilters + 1 : countFilters} />
         <Sidebar
           level={level}
           onLevelChange={handleLevelChange}
@@ -228,7 +235,8 @@ console.log(filteredCourses)
           rating={rating}
           onPriceChange={handleOnPriceChange}
           price={price}
-        /> : null}
+        />
+        </div>
         <div className="course__column">
         {courses && (
           <CourseList
