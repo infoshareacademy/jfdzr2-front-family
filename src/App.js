@@ -6,6 +6,7 @@ import { Footer } from "./components/footer/Footer";
 import { CourseDetails } from './views/course-details/CourseDetails';
 import ShoppingCart from './views/shopping-cart/ShoppingCart';
 import ScrollToTop from './components/ScrollToTop';
+import { SignUp } from './views/sign-up/SignUp';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/course-details/:id" component={CourseDetails} />
               <Route path="/cart" component={ShoppingCart} />
+              <Route path="/sign-up" component={SignUp} />
             </Switch>
             <Footer />
           </Route>
