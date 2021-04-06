@@ -3,7 +3,6 @@ import { useState } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
 
 import logoBlack from "../../assets/img/logo_black.svg";
-
 import "./Navigation.css";
 
 export const Navigation = () => {
@@ -26,6 +25,7 @@ export const Navigation = () => {
     <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
+      <button className="nav__btn--logout">Log out</button>
       <CartViewPopper />
     </div>
   </nav>
