@@ -7,21 +7,24 @@ import { CourseDetails } from './views/course-details/CourseDetails';
 import ShoppingCart from './views/shopping-cart/ShoppingCart';
 import ScrollToTop from './components/ScrollToTop';
 import { SignUp } from './views/sign-up/SignUp';
+import { UserContextProvider} from "./components/user/UserContextProvider";
 
 function App() {
   return (
       <Router>
         <ScrollToTop>
-          <Route>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/course-details/:id" component={CourseDetails} />
-              <Route path="/cart" component={ShoppingCart} />
-              <Route path="/sign-up" component={SignUp} />
-            </Switch>
-            <Footer />
-          </Route>
+          <UserContextProvider>
+            <Route>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/course-details/:id" component={CourseDetails} />
+                <Route path="/cart" component={ShoppingCart} />
+                <Route path="/sign-up" component={SignUp} />
+              </Switch>
+              <Footer />
+            </Route>
+          </UserContextProvider>
         </ScrollToTop>
       </Router>
   )
