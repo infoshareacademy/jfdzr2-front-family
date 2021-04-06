@@ -1,8 +1,9 @@
 import firebase from 'firebase';
 import { auth } from '../../services/firebase-config';
 import { NavLink } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
+import { UserContext } from "../user/UserContext";
 
 import logoBlack from "../../assets/img/logo_black.svg";
 import "./Navigation.css";
@@ -20,6 +21,8 @@ export const Navigation = () => {
 
   window.addEventListener("scroll", handleScroll);
 
+  const user = useContext(UserContext);
+
   const handleOnSignOutClick = () => {
     auth.signOut();
   }
@@ -29,9 +32,17 @@ export const Navigation = () => {
       <NavLink exact to="/"><img src={logoBlack} alt="Future Skills" /></NavLink>
     </div>
     <div className="header__nav__link__container">
-      <NavLink to="/log-in">Log in</NavLink>
-      <NavLink to="/sign-up">Sign up</NavLink>
-      <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>
+      {
+        !user && (
+          <>
+            <NavLink to="/log-in">Log in</NavLink>
+            <NavLink to="/sign-up">Sign up</NavLink>
+          </>
+        )
+      }
+
+      {user && <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>}
+      
       <CartViewPopper />
     </div>
   </nav>
