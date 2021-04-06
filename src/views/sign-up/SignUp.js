@@ -21,7 +21,9 @@ export const SignUp = () => {
 				// form.reset();
         setEmail('');
         setPassword('');
-      })
+      }).catch(error => {
+				alert(error.message);
+			})
   };
 
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
