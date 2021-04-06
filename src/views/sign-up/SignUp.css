@@ -1,0 +1,12 @@
+form[name="signUpForm"]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+}
+
+form[name="signUpForm"] h3{
+  margin-bottom: 30px;
+  font-size: 1.375rem;
+  font-weight: 500;
+}
