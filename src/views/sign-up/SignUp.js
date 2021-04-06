@@ -12,7 +12,11 @@ export const SignUp = () => {
   const handleOnEmailChange = (event) => setEmail(event.target.value);
 	const handleOnPasswordChange = (event) => setPassword(event.target.value);
 
-  return <form name="signUpForm">
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  return <form name="signUpForm" onSubmit={handleOnSubmit}>
     <h3>Sign up</h3>
     <label htmlFor="email">Email</label>
     <input id="email" type="email" value={email} name="email" onChange={handleOnEmailChange} required/>
