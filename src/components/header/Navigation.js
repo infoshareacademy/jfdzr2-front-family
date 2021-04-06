@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+import { auth } from '../../services/firebase-config';
 import { NavLink } from 'react-router-dom';
 import { useState } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
@@ -18,6 +20,10 @@ export const Navigation = () => {
 
   window.addEventListener("scroll", handleScroll);
 
+  const handleOnSignOutClick = () => {
+    auth.signOut();
+  }
+
   return <nav className={scroll ? "header__nav header__nav--active" : "header__nav"}>
     <div className="header__nav__logo__container">
       <NavLink exact to="/"><img src={logoBlack} alt="Future Skills" /></NavLink>
@@ -25,7 +31,7 @@ export const Navigation = () => {
     <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
-      <button className="nav__btn--logout">Log out</button>
+      <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>
       <CartViewPopper />
     </div>
   </nav>
