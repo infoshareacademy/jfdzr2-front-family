@@ -8,7 +8,7 @@ export default function Filter({numberOfFilters}, props) {
   
   return (
 
-      <Button startIcon={<FilterListIcon />}>
+      <Button disabled startIcon={<FilterListIcon />} style={{color: "black"}}>
         Filter ({numberOfFilters})
             </Button>
 

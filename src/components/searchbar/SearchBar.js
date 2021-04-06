@@ -28,7 +28,7 @@ export const SearchBar = ({onFilterChange}) => {
         key="random1"
         value={filter}
         onChange={handleOnChange}
-        placeholder={"Search by name"}
+        placeholder={"Search by title"}
         name="search"
       />
       <button type="submit" className="SearchButton">

@@ -6,22 +6,15 @@ import "./Home.css";
 import Button from "@material-ui/core/Button";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { SearchBar } from "../../components/searchbar/SearchBar";
-import  Filter  from "../../components/sidebar/Filter"
+import Filter from "../../components/sidebar/Filter";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [visibleCourses, setVisibleCourses] = useState(4);
-  const [filter, setFilter] = useState('');
-  // const [visibility, setVisibility] = useState(true);
+  const [filter, setFilter] = useState("");
 
   const [countFilters, setCountFilters] = useState(0);
-
-// const handleFilterChange = () => {
-//     setVisibility(false);
-//   };
-
- let numberChosen = 0; 
 
   const handleOnFilterChange = (filterText) => {
     setFilter(filterText);
@@ -35,8 +28,12 @@ const Home = () => {
 
   const handleLevelChange = (event) => {
     setLevel({ ...level, [event.target.name]: event.target.checked });
-    if(event.target.checked){setCountFilters(countFilters+1)};
-    if(!event.target.checked){setCountFilters(countFilters-1)}
+    if (event.target.checked) {
+      setCountFilters(countFilters + 1);
+    }
+    if (!event.target.checked) {
+      setCountFilters(countFilters - 1);
+    }
   };
 
   const [topic, setTopic] = useState({
@@ -48,8 +45,12 @@ const Home = () => {
 
   const handleTopicChange = (event) => {
     setTopic({ ...topic, [event.target.name]: event.target.checked });
-    if(event.target.checked){setCountFilters(countFilters+1)};
-    if(!event.target.checked){setCountFilters(countFilters-1)}
+    if (event.target.checked) {
+      setCountFilters(countFilters + 1);
+    }
+    if (!event.target.checked) {
+      setCountFilters(countFilters - 1);
+    }
   };
 
   const [duration, setDuration] = useState({
@@ -61,12 +62,16 @@ const Home = () => {
 
   const handleDurationChange = (event) => {
     setDuration({ ...duration, [event.target.name]: event.target.checked });
-    if(event.target.checked){setCountFilters(countFilters+1)};
-    if(!event.target.checked){setCountFilters(countFilters-1)}
+    if (event.target.checked) {
+      setCountFilters(countFilters + 1);
+    }
+    if (!event.target.checked) {
+      setCountFilters(countFilters - 1);
+    }
   };
 
-  const [rating, setRating] = useState('');
-  
+  const [rating, setRating] = useState("");
+
   const handleRatingChange = (event) => {
     setRating(event.target.value);
   };
@@ -76,13 +81,51 @@ const Home = () => {
     paid: false,
   });
 
+  const handleOnClearFilter = () => {
+    setPrice({
+      free: false,
+      paid: false,
+    });
+
+    setDuration({
+      oneToFive: false,
+      sixToTen: false,
+      elevenToFifteen: false,
+      aboveSixteen: false,
+    });
+
+    setLevel({
+      beginner: false,
+      intermediate: false,
+      expert: false,
+    });
+
+    setTopic({
+      business: false,
+      graphic: false,
+      languages: false,
+      programming: false,
+    });
+
+    setRating({
+      highest: false,
+      lowest: false,
+    });
+
+    setCountFilters(0);
+  };
+
   const handleOnPriceChange = (event) => {
     setPrice({ ...price, [event.target.name]: event.target.checked });
-    if(event.target.checked){setCountFilters(countFilters+1)};
-    if(!event.target.checked){setCountFilters(countFilters-1)}
+    if (event.target.checked) {
+      setCountFilters(countFilters + 1);
+    }
+    if (!event.target.checked) {
+      setCountFilters(countFilters - 1);
+    }
   };
-  
-useEffect(() => {
+
+  useEffect(() => {
     db.collection("courses")
       .get()
       .then((snapshot) => {
@@ -213,41 +256,61 @@ useEffect(() => {
     filteredCourses = filteredCourses.filter((course) => course.price !== 0);
   }
 
-  filteredCourses = 
-  filteredCourses.filter((course) => course.title.toLowerCase().includes(filter.toLowerCase()))
+  filteredCourses = filteredCourses.filter((course) =>
+    course.title.toLowerCase().includes(filter.toLowerCase())
+  );
 
-  let noCoursesFound = {}
+  let noCoursesFound = {};
 
   return (
     <>
-      <SearchBar onFilterChange={handleOnFilterChange}/>
+      <SearchBar onFilterChange={handleOnFilterChange} />
       <div className="home__wrapper">
         <div className="sidebar__wrapper">
-      <Filter numberOfFilters={rating ? countFilters + 1 : countFilters} />
-        <Sidebar
-          level={level}
-          onLevelChange={handleLevelChange}
-          topic={topic}
-          onTopicChange={handleTopicChange}
-          duration={duration}
-          onDurationChange={handleDurationChange}
-          onRatingChange={handleRatingChange}
-          rating={rating}
-          onPriceChange={handleOnPriceChange}
-          price={price}
-        />
+          <div>
+            <Filter
+              numberOfFilters={
+                rating == "highest" || rating == "lowest"
+                  ? countFilters + 1
+                  : countFilters
+              }
+            />
+            <span>
+              {countFilters > 0 && (
+                <button className="clear__button" onClick={handleOnClearFilter}>
+                  CLEAR FILTERS
+                </button>
+              )}
+            </span>
+          </div>
+          <Sidebar
+            level={level}
+            onLevelChange={handleLevelChange}
+            topic={topic}
+            onTopicChange={handleTopicChange}
+            duration={duration}
+            onDurationChange={handleDurationChange}
+            onRatingChange={handleRatingChange}
+            rating={rating}
+            onPriceChange={handleOnPriceChange}
+            price={price}
+          />
         </div>
         <div className="course__column">
-        {courses && (
-          <CourseList
-            courses={filteredCourses}
-            title={filteredCourses.length !== 0 ? "Our Courses" : "No courses found. Try again."}
-            visibleCourses={visibleCourses}
-            isPending={isPending}
-          />
-        )}
+          {courses && (
+            <CourseList
+              courses={filteredCourses}
+              title={
+                filteredCourses.length !== 0
+                  ? "Our Courses"
+                  : "No courses found. Try again."
+              }
+              visibleCourses={visibleCourses}
+              isPending={isPending}
+            />
+          )}
         </div>
-        </div>
+      </div>
 
       <div className="load__more__btn__wrapper">
         {visibleCourses < filteredCourses.length ? (

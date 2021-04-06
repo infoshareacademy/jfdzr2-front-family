@@ -17,6 +17,18 @@
     }
 }
 
+.clear__button {
+  padding: 5px 10px;
+  margin-bottom: 7px;
+  border: 1px solid #f50057;
+  font-size: 15px;
+}
+
+.clear__button:hover {
+    cursor: pointer;
+    background-color: #f50057;
+}
+
 /* LOAD MORE BUTTON */
 .load__more__btn__wrapper {
     display: flex;
