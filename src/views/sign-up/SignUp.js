@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import firebase from 'firebase';
 import { auth } from '../../services/firebase-config';
 
@@ -10,6 +10,7 @@ export const SignUp = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const handleOnEmailChange = (event) => setEmail(event.target.value);
 	const handleOnPasswordChange = (event) => setPassword(event.target.value);
@@ -21,10 +22,15 @@ export const SignUp = () => {
 				// form.reset();
         setEmail('');
         setPassword('');
+        setShouldRedirect(true);
       }).catch(error => {
 				alert(error.message);
 			})
   };
+
+  if (shouldRedirect) {
+    return <Redirect to="/" />
+  }
 
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
     <h3>Sign up</h3>
