@@ -29,6 +29,16 @@ export const SignUp = () => {
 			})
   };
 
+  const handleOnFocus = (event) => {
+    event.preventDefault();
+    event.target.previousElementSibling.classList.add("signup__form__input--focus");
+  }
+
+  const handleOnMouseLeave = (event) => {
+    event.preventDefault();
+    event.target.previousElementSibling.classList.remove("signup__form__input--focus");
+  }
+
   if (shouldRedirect) {
     return <Redirect to="/" />
   }
@@ -36,9 +46,29 @@ export const SignUp = () => {
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
     <h3>Sign up</h3>
     <label htmlFor="email">Email:</label>
-    <input id="email" type="email" value={email} name="email" placeholder="Enter email address" onChange={handleOnEmailChange} required/>
+    <input
+      id="email"
+      type="email"
+      value={email}
+      name="email"
+      placeholder="Enter email address"
+      onChange={handleOnEmailChange}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnFocus}
+      onMouseLeave={handleOnMouseLeave}
+      required/>
     <label htmlFor="password">Password:</label>
-    <input id="password" type="password" value={password} name="password" placeholder="Enter password" onChange={handleOnPasswordChange} required/>
+    <input
+      id="password"
+      type="password"
+      value={password}
+      name="password"
+      placeholder="Enter password"
+      onChange={handleOnPasswordChange}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnFocus}
+      onMouseLeave={handleOnMouseLeave}
+      required/>
     <p className="error"></p>
     <button type="submit">Sign up</button>
     <p>Already have an account? <Link to="/log-in">Log in</Link></p>
