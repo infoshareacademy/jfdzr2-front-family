@@ -16,6 +16,19 @@ const Home = () => {
 
   const [countFilters, setCountFilters] = useState(0);
 
+  useEffect(() => {
+    db.collection("courses")
+      .get()
+      .then((snapshot) => {
+        setCourses(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setIsPending(false);
+      });
+  }, []);
+
+  const handleShowMoreCourses = () => {
+    setVisibleCourses((previousValue) => previousValue + 4);
+  };
+
   const handleOnFilterChange = (filterText) => {
     setFilter(filterText);
   };
@@ -81,40 +94,6 @@ const Home = () => {
     paid: false,
   });
 
-  const handleOnClearFilter = () => {
-    setPrice({
-      free: false,
-      paid: false,
-    });
-
-    setDuration({
-      oneToFive: false,
-      sixToTen: false,
-      elevenToFifteen: false,
-      aboveSixteen: false,
-    });
-
-    setLevel({
-      beginner: false,
-      intermediate: false,
-      expert: false,
-    });
-
-    setTopic({
-      business: false,
-      graphic: false,
-      languages: false,
-      programming: false,
-    });
-
-    setRating({
-      highest: false,
-      lowest: false,
-    });
-
-    setCountFilters(0);
-  };
-
   const handleOnPriceChange = (event) => {
     setPrice({ ...price, [event.target.name]: event.target.checked });
     if (event.target.checked) {
@@ -123,19 +102,6 @@ const Home = () => {
     if (!event.target.checked) {
       setCountFilters(countFilters - 1);
     }
-  };
-
-  useEffect(() => {
-    db.collection("courses")
-      .get()
-      .then((snapshot) => {
-        setCourses(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-        setIsPending(false);
-      });
-  }, []);
-
-  const handleShowMoreCourses = () => {
-    setVisibleCourses((previousValue) => previousValue + 4);
   };
 
   let filteredCourses = courses;
@@ -259,8 +225,41 @@ const Home = () => {
   filteredCourses = filteredCourses.filter((course) =>
     course.title.toLowerCase().includes(filter.toLowerCase())
   );
+  
 
-  let noCoursesFound = {};
+  const handleOnClearFilter = () => {
+    setPrice({
+      free: false,
+      paid: false,
+    });
+
+    setDuration({
+      oneToFive: false,
+      sixToTen: false,
+      elevenToFifteen: false,
+      aboveSixteen: false,
+    });
+
+    setLevel({
+      beginner: false,
+      intermediate: false,
+      expert: false,
+    });
+
+    setTopic({
+      business: false,
+      graphic: false,
+      languages: false,
+      programming: false,
+    });
+
+    setRating({
+      highest: false,
+      lowest: false,
+    });
+
+    setCountFilters(0);
+  };
 
   return (
     <>

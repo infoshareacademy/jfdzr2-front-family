@@ -139,7 +139,7 @@ export default function CartViewPopper() {
                                 </div>
                                 <div className="checkout__wrapper">
                                     <NavLink to="/" className="homepage__link">
-                                        <button>Keep shopping</button>
+                                        <button onClick={handleClose}>Keep shopping</button>
                                     </NavLink>
                                 </div>
                             </>   

@@ -7,10 +7,38 @@ import { useSelector, useDispatch } from 'react-redux';
 import { coursesInCartSelector, totalPriceOfCoursesInCartSelector } from "../../reducers/selectors";
 import { removeFromCart } from '../../reducers/shopping-cart';
 
+import firebase from 'firebase/app';
+
 const ShoppingCart = () => {
     const courses = useSelector(coursesInCartSelector);
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
     const dispatch = useDispatch();
+
+    const historyListRaw = courses.map((course) => course.title);
+    const historyList = historyListRaw.join(" // ");
+
+    const handleOnCheckout = () => {
+      if (firebase.firestore().collection("history").doc("user_id3").get) {
+        firebase
+          .firestore()
+          .collection("history")
+          .doc("user_id3")
+          .update({
+            historyList: firebase.firestore.FieldValue.arrayUnion(
+              historyList
+            ),
+          });
+      }
+
+      firebase
+        .firestore()
+        .collection("history")
+        .doc("user_id3")
+        .set({
+            historyList
+        });
+    };
+
 
     return ( 
         <div className="cart__wrapper">
@@ -51,7 +79,7 @@ const ShoppingCart = () => {
                                 <p>Total:</p>
                                 <p className="cart__course__total__price">{totalPrice} PLN</p>
                             </div>
-                            <button>Checkout</button>
+                            <button onClick={handleOnCheckout}>Checkout</button>
                         </section>
                     </main>
                 ) :
