@@ -4,12 +4,14 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import "./Footer.css";
 import { Typography } from "@material-ui/core";
+import logoWhite from "../../assets/img/logo_white.svg";
+import { NavLink } from 'react-router-dom';
 
 
 export const Footer = () => {
  return (
    <footer style={{ backgroundColor: "#011627", color: "#FDFFFC" }}>
-     <div className="logoFooter">Future Skills</div>
+     <div className="logoFooter"><NavLink exact to="/"><img src={logoWhite} alt="Future Skills" /></NavLink></div>
 
      <div className="columnsFooter">
        <div className="leftColumnFooter">
