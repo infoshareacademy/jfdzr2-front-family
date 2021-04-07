@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
 
 import logoBlack from "../../assets/img/logo_black.svg";
@@ -17,7 +17,11 @@ export const Navigation = () => {
     }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);;
+  }, []);
 
   return <nav className={scroll ? "header__nav header__nav--active" : "header__nav"}>
     <div className="header__nav__logo__container">

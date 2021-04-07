@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -57,7 +57,11 @@ export default function CartViewPopper() {
         }
     }
 
-    window.addEventListener("scroll", handleScroll);
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);;
+    }, []);
 
     return (
         <div className={scroll ? "cart__popover__wrapper--active" : "cart__popover__wrapper"}>

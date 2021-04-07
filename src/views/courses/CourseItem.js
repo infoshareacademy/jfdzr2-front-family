@@ -13,9 +13,10 @@ const CourseItem = ({ course }) => {
     const dispatch = useDispatch();
     const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
 
-    const stopButtonPropagation = (event) => {
+    const handleAddToCart = (event) => {
         event.stopPropagation();
         event.preventDefault();
+        dispatch(addToCart(course))
     }
 
     return (
@@ -63,7 +64,7 @@ const CourseItem = ({ course }) => {
                             <button 
                                 className="course__info__cart__btn" 
                                 title="Add to cart"
-                                onClick={(event) => dispatch(addToCart(course, stopButtonPropagation(event)))}
+                                onClick={handleAddToCart}
                             >
                                 <MdAddShoppingCart
                                     style={{
