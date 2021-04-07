@@ -1,40 +1,21 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 // import { withStyles } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { Category, GolfCourseRounded, PinDropSharp } from "@material-ui/icons";
 
-// const GreenCheckbox = withStyles({
-//   root: {
-//     color: green[400],
-//     "&$checked": {
-//       color: green[600],
-//     },
-//   },
-//   checked: {},
-// })((props) => <Checkbox color="default" {...props} />);
-
-export default function CheckboxesTopic() {
-  const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
-    checkedD: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+export default function CheckboxesTopic(props) {
 
   return (
     <FormGroup row>
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedA}
-            onChange={handleChange}
-            name="checkedA"
+            checked={props.topic.business}
+            onChange={props.onChange}
+            name="business"
           />
         }
         label="Business"
@@ -42,9 +23,9 @@ export default function CheckboxesTopic() {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedB}
-            onChange={handleChange}
-            name="checkedB"
+            checked={props.topic.graphic}
+            onChange={props.onChange}
+            name="graphic"
           />
         }
         label="Graphic Design"
@@ -52,9 +33,9 @@ export default function CheckboxesTopic() {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedC}
-            onChange={handleChange}
-            name="checkedC"
+            checked={props.topic.languages}
+            onChange={props.onChange}
+            name="languages"
           />
         }
         label="Languages"
@@ -62,9 +43,9 @@ export default function CheckboxesTopic() {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.checkedD}
-            onChange={handleChange}
-            name="checkedD"
+            checked={props.topic.programming}
+            onChange={props.onChange}
+            name="programming"
           />
         }
         label="Programming"

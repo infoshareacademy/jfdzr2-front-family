@@ -4,25 +4,19 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import { RatingFive, RatingFour, RatingThree, RatingTwo} from "./Rating"
+import { RatingFive, RatingThree } from "./Rating"
 
 
 
-export default function RadioButtonsGroup() {
-  const [value, setValue] = React.useState('highest');
+export default function RadioButtonsGroup(props) {
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
   return (
     <FormControl >
      
-   <RadioGroup aria-label="rating" name="rating" value={value} onChange={handleChange}> 
-      <FormControlLabel value="highest" control={<Radio />} label={ <><RatingFive /> 4.5 &amp; up</>} />
-      <FormControlLabel value="high" control={<Radio />} label={ <><RatingFour /> 4.0 &amp; up</>} />
-      <FormControlLabel value="low" control={<Radio />} label={ <><RatingThree /> 3.5 &amp; up</>} />
-      <FormControlLabel value="lowest" control={<Radio />} label={ <><RatingTwo /> 3.0 &amp; up</>} /> 
+   <RadioGroup aria-label="rating" name="rating" value={props.rating.value} onChange={props.onChange}> 
+      <FormControlLabel checked={props.rating.highest} value="highest" control={<Radio />} label={ <><RatingFive /> 4.1 &amp; up</>} />
+      <FormControlLabel checked={props.rating.lowest} value="lowest" control={<Radio />} label={ <><RatingThree /> 3.1 &amp; up</>} />
       </RadioGroup>  
     </FormControl>
   );

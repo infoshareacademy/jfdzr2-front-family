@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import { auth } from '../../services/firebase-config';
 import { NavLink } from 'react-router-dom';
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
 import { UserContext } from "../user/UserContext";
 
@@ -19,7 +19,11 @@ export const Navigation = () => {
     }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);;
+  }, []);
 
   const user = useContext(UserContext);
 

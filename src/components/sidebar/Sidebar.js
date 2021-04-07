@@ -12,7 +12,7 @@ import CheckboxesTopic from "./CheckboxesTopic";
 import CheckboxesLevel from "./CheckboxesLevel";
 import CheckboxesPrice from "./CheckboxesPrice";
 import CheckboxesDuration from "./CheckboxesDuration";
-import Filter from "./Filter"
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,12 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion() {
+export default function Sidebar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-<Filter/>
       <Accordion
         style={{
           boxShadow: "none",
@@ -45,13 +44,12 @@ export default function SimpleAccordion() {
           id="panel1a-header"
           style={{ backgroundColor: "#edf2f4" }}
         >
-          <Typography className={classes.heading}>Ratings</Typography>
+          <Typography className={classes.heading}>Category</Typography>
         </AccordionSummary>
         <AccordionDetails style={{ backgroundColor: "#edf2f4" }}>
         
            
-              <RadioButtons />
-            
+        <CheckboxesTopic topic={props.topic} onChange={props.onTopicChange}/>
          
         </AccordionDetails>
       </Accordion>
@@ -67,14 +65,14 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2b-header"
         >
-          <Typography className={classes.heading}>Category</Typography>
+          <Typography className={classes.heading}>Level</Typography>
         </AccordionSummary>
         <AccordionDetails>
         
-            
-              <CheckboxesTopic />
-            
-          
+
+        <CheckboxesLevel level={props.level} onChange={props.onLevelChange} />
+
+
         </AccordionDetails>
       </Accordion>
 
@@ -90,12 +88,12 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2c-header"
         >
-          <Typography className={classes.heading}>Level</Typography>
+          <Typography className={classes.heading}>Price</Typography>
         </AccordionSummary>
         <AccordionDetails>
         
             
-              <CheckboxesLevel />
+        <CheckboxesPrice price={props.price} onChange={props.onPriceChange}/>
             
         
         </AccordionDetails>
@@ -113,14 +111,14 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2d-header"
         >
-          <Typography className={classes.heading}>Price</Typography>
+          <Typography className={classes.heading}>Duration</Typography>
         </AccordionSummary>
         <AccordionDetails>
-         
-            
-              <CheckboxesPrice />
            
+              
+              <CheckboxesDuration duration={props.duration} onChange={props.onDurationChange}/>
           
+
         </AccordionDetails>
       </Accordion>
 
@@ -136,12 +134,12 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2e-header"
         >
-          <Typography className={classes.heading}>Course duration</Typography>
+          <Typography className={classes.heading}>Ratings</Typography>
         </AccordionSummary>
         <AccordionDetails>
          
             
-              <CheckboxesDuration />
+              <RadioButtons rating={props.rating} onChange={props.onRatingChange}/>    
             
          
         </AccordionDetails>

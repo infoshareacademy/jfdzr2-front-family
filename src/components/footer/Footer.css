@@ -60,8 +60,14 @@ a.linkFooter:hover {
     padding-top: 20px;
 }
 
-.logoFooter {
-    padding-left: 11%;
+.logoFooter img{
+    padding-left: 40px;
     padding-top: 30px;
     padding-bottom: 15px;
+    max-width: 130px;
+}
+
+.logoFooter:hover {
+    color: orange;
+    cursor: pointer;
 }

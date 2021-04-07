@@ -4,6 +4,12 @@
     margin-top: 10px;
 }
 
+.sidebar__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 @media screen and (max-width: 667px) {
     .home__wrapper {
         flex-direction: column;
@@ -11,9 +17,38 @@
     }
 }
 
+.clear__button {
+  padding: 5px 10px;
+  margin-bottom: 7px;
+  border: 1px solid #f50057;
+  font-size: 15px;
+}
+
+.clear__button:hover {
+    cursor: pointer;
+    background-color: #f50057;
+}
+
 /* LOAD MORE BUTTON */
 .load__more__btn__wrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+.notFoundInfo {
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 667px){
+    .course__column{
+    width: 900px;
+}
+}
+
+@media screen and (max-width: 667px) {
+    .notFoundInfo{
+    margin-top: 30px;
+    margin-left: 0px;
+    }
 }
