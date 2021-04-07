@@ -34,11 +34,11 @@ export const SignUp = () => {
 
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
     <h3>Sign up</h3>
-    <label htmlFor="email">Email</label>
-    <input id="email" type="email" value={email} name="email" onChange={handleOnEmailChange} required/>
-    <label htmlFor="password">Password</label>
-    <input id="password" type="password" value={password} name="password" onChange={handleOnPasswordChange} required/>
-    <input type="submit" value="Sign up" />
+    <label htmlFor="email">Email:</label>
+    <input id="email" type="email" value={email} name="email" placeholder="Enter email address" onChange={handleOnEmailChange} required/>
+    <label htmlFor="password">Password:</label>
+    <input id="password" type="password" value={password} name="password" placeholder="Enter password" onChange={handleOnPasswordChange} required/>
+    <button type="submit">Sign up</button>
     <p>Already have an account? <Link to="/log-in">Log in</Link></p>
   </form>
 }
