@@ -22,9 +22,10 @@ export const SignUp = () => {
 				// form.reset();
         setEmail('');
         setPassword('');
+        form.querySelector(".error").innerHTML = "";
         setShouldRedirect(true);
       }).catch(error => {
-				alert(error.message);
+				  form.querySelector(".error").innerHTML = error.message;
 			})
   };
 
@@ -38,6 +39,7 @@ export const SignUp = () => {
     <input id="email" type="email" value={email} name="email" placeholder="Enter email address" onChange={handleOnEmailChange} required/>
     <label htmlFor="password">Password:</label>
     <input id="password" type="password" value={password} name="password" placeholder="Enter password" onChange={handleOnPasswordChange} required/>
+    <p className="error"></p>
     <button type="submit">Sign up</button>
     <p>Already have an account? <Link to="/log-in">Log in</Link></p>
   </form>
