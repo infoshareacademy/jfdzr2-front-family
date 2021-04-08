@@ -14,30 +14,37 @@ const ShoppingCart = () => {
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
     const dispatch = useDispatch();
 
-    const historyListRaw = courses.map((course) => course.title);
-    const historyList = historyListRaw.join(" // ");
+const historyList = courses.map((course) => course.title);
 
-    const handleOnCheckout = () => {
-      if (firebase.firestore().collection("history").doc("user_id3").get) {
+const handleOnCheckout = () => {
+  firebase
+    .firestore()
+    .collection("history")
+    .doc("user_id81")
+    .get()
+    .then((doc) => {
+      if (doc.exists)
+        historyList.map((item) => {
+          firebase
+            .firestore()
+            .collection("history")
+            .doc("user_id81")
+            .update({
+              historyList: firebase.firestore.FieldValue.arrayUnion(item),
+            });
+        });
+      else {
         firebase
           .firestore()
           .collection("history")
-          .doc("user_id3")
-          .update({
-            historyList: firebase.firestore.FieldValue.arrayUnion(
-              historyList
-            ),
-          });
+          .doc("user_id81")
+          .set({ historyList });
       }
-
-      firebase
-        .firestore()
-        .collection("history")
-        .doc("user_id3")
-        .set({
-            historyList
-        });
-    };
+    })
+    .catch((error) => {
+        console.log("Error getting document:", error)
+    })
+};
 
 
     return ( 
