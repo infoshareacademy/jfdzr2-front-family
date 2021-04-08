@@ -11,6 +11,7 @@ export const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [error, setError] = useState('');
 
   const handleOnEmailChange = (event) => setEmail(event.target.value);
 	const handleOnPasswordChange = (event) => setPassword(event.target.value);
@@ -22,10 +23,9 @@ export const SignUp = () => {
 				// form.reset();
         setEmail('');
         setPassword('');
-        form.querySelector(".error").innerHTML = "";
         setShouldRedirect(true);
       }).catch(error => {
-				  form.querySelector(".error").innerHTML = error.message;
+          setError(error.message);
 			})
   };
 
@@ -69,7 +69,7 @@ export const SignUp = () => {
       onMouseEnter={handleOnFocus}
       onMouseLeave={handleOnMouseLeave}
       required/>
-    <p className="error"></p>
+    {error && <p className="error">{error}</p>}
     <button type="submit">Sign up</button>
     <p>Already have an account? <Link to="/log-in">Log in</Link></p>
   </form>
