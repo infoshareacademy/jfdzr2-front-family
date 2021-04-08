@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from '../src/views/home/Home';
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
@@ -10,6 +11,8 @@ import { SignUp } from './views/sign-up/SignUp';
 import { Auth } from './components/user/Auth';
 
 function App() {
+  const isLoggedIn = useSelector(state => state.loggedIn);
+
   return (
       <Router>
         <ScrollToTop>
@@ -20,7 +23,11 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/course-details/:id" component={CourseDetails} />
                 <Route path="/cart" component={ShoppingCart} />
-                <Route path="/sign-up" component={SignUp} />
+                {
+                  !isLoggedIn
+                      ? <Route path="/sign-up" component={SignUp} />
+                      : <Redirect from="/sign-up" to="/" />
+                }
               </Switch>
               <Footer />
             </Route>
