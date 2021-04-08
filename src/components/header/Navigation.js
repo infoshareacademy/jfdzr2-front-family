@@ -1,7 +1,6 @@
-import firebase from 'firebase';
 import { auth } from '../../services/firebase-config';
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
 import { useSelector } from 'react-redux';
 

@@ -36,7 +36,7 @@ export const SignUp = () => {
     event.target.previousElementSibling.classList.remove("signup__form__input--focus");
   }
 
-  return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
+  return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form" method="POST">
     <h3>Sign up</h3>
     <label htmlFor="email">Email:</label>
     <input
