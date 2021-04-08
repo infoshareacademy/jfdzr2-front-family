@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import firebase from 'firebase';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../services/firebase-config';
 
 import './SignUp.css';
 
 export const SignUp = () => {
-  const form = document.querySelector('.signup__form');
+  let history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [shouldRedirect, setShouldRedirect] = useState(false);
   const [error, setError] = useState('');
 
   const handleOnEmailChange = (event) => setEmail(event.target.value);
@@ -20,10 +18,9 @@ export const SignUp = () => {
     event.preventDefault();
     auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
-				// form.reset();
         setEmail('');
         setPassword('');
-        setShouldRedirect(true);
+        history.push("/");
       }).catch(error => {
           setError(error.message);
 			})
@@ -37,10 +34,6 @@ export const SignUp = () => {
   const handleOnMouseLeave = (event) => {
     event.preventDefault();
     event.target.previousElementSibling.classList.remove("signup__form__input--focus");
-  }
-
-  if (shouldRedirect) {
-    return <Redirect to="/" />
   }
 
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
