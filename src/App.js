@@ -7,13 +7,13 @@ import { CourseDetails } from './views/course-details/CourseDetails';
 import ShoppingCart from './views/shopping-cart/ShoppingCart';
 import ScrollToTop from './components/ScrollToTop';
 import { SignUp } from './views/sign-up/SignUp';
-import { UserContextProvider} from "./components/user/UserContextProvider";
+import { Auth } from './components/user/Auth';
 
 function App() {
   return (
       <Router>
         <ScrollToTop>
-          <UserContextProvider>
+          <Auth>
             <Route>
               <Header />
               <Switch>
@@ -24,7 +24,7 @@ function App() {
               </Switch>
               <Footer />
             </Route>
-          </UserContextProvider>
+          </Auth>
         </ScrollToTop>
       </Router>
   )
