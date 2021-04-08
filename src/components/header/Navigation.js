@@ -3,7 +3,7 @@ import { auth } from '../../services/firebase-config';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useContext } from "react";
 import CartViewPopper from '../../views/shopping-cart/CartViewPopper';
-import { UserContext } from "../user/UserContext";
+import { useSelector } from 'react-redux';
 
 import logoBlack from "../../assets/img/logo_black.svg";
 import "./Navigation.css";
@@ -25,7 +25,7 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);;
   }, []);
 
-  const user = useContext(UserContext);
+  const isLoggedIn = useSelector(state => state.loggedIn);
 
   const handleOnSignOutClick = () => {
     auth.signOut();
@@ -37,7 +37,7 @@ export const Navigation = () => {
     </div>
     <div className="header__nav__link__container">
       {
-        !user && (
+        !isLoggedIn && (
           <>
             <NavLink to="/log-in">Log in</NavLink>
             <NavLink to="/sign-up">Sign up</NavLink>
@@ -45,7 +45,7 @@ export const Navigation = () => {
         )
       }
 
-      {user && <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>}
+      {isLoggedIn && <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>}
       
       <CartViewPopper />
     </div>
