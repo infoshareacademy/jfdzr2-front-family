@@ -15,18 +15,23 @@
   padding: 0 5px;
 }
 
-.header__nav a{
+.header__nav a,
+.nav__btn--logout{
+  border: none;
   padding: 18px 6px;
+  background-color: transparent;
   color: #000;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   letter-spacing: 0.01rem;
   text-decoration: none;
+  cursor: pointer;
   transition: color 300ms;
 }
 
-.header__nav a:hover{
+.header__nav a:hover,
+.nav__btn--logout:hover{
   color: #ff9f1c;
 }
 
@@ -35,7 +40,8 @@
   background-image: linear-gradient(to right, #ff9f1c, rgba(1, 22, 39, 0.1));
 }
 
-.header__nav--active a:hover{
+.header__nav--active a:hover,
+.header__nav--active .nav__btn--logout:hover{
   color: #fdfffc;
 }
 
@@ -52,7 +58,8 @@
 }
 
 @media (min-width: 281px){
-  .header__nav a{
+  .header__nav a,
+  .nav__btn--logout{
     padding: 18px 10px;
     font-size: 1rem;
     font-weight: 400;
