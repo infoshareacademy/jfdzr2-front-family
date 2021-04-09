@@ -2,15 +2,21 @@ import "./PurchaseHistory.css";
 import HistoryIcon from '@material-ui/icons/History';
 import { NavLink } from "react-router-dom";
 import { db } from '../../services/firebase-config';
+import { auth } from '../../services/firebase-config';
 
-
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
-
 
 const PurchaseHistory = () => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
+
+  const isLoggedIn = useSelector(state => state.loggedIn);
+
+  let user_id ;
+{isLoggedIn ? user_id = auth.currentUser.uid : user_id = "unregistered"}
+console.log(user_id) 
 
   useEffect(() => {
     db.collection("courses")
@@ -26,7 +32,7 @@ const PurchaseHistory = () => {
 
   useEffect(() => {
     db.collection("history")
-      .doc("user_id4")
+      .doc(user_id)
       .get()
       .then((doc) => {
         if (doc) {

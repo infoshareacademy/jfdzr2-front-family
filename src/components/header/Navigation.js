@@ -45,6 +45,10 @@ export const Navigation = () => {
       }
 
       {isLoggedIn && <button className="nav__btn--logout" onClick={handleOnSignOutClick}>Log out</button>}
+
+      {isLoggedIn &&
+            <NavLink to="/history">Purchase history</NavLink>
+      }
       
       <CartViewPopper />
     </div>
