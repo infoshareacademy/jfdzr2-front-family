@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import { shoppingCart } from './shopping-cart';
+import { loggedIn } from './logged-in';
 
 const allReducers = combineReducers({
-    shoppingCart
+    shoppingCart,
+    loggedIn
 })
 
 export default allReducers;
