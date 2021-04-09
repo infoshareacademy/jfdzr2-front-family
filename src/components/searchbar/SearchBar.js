@@ -17,7 +17,6 @@ export const SearchBar = ({onFilterChange}) => {
   const handleOnChange = (event) => {
     setFilter(event.target.value);
     onFilterChange(event.target.value)
-
   }
 
   return (
@@ -31,7 +30,7 @@ export const SearchBar = ({onFilterChange}) => {
         placeholder={"Search by title"}
         name="search"
       />
-      <button type="submit" className="SearchButton">
+      <button disabled type="submit" className="SearchButton">
         <SearchIcon />
       </button>
     </form>

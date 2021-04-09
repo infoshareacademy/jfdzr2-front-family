@@ -26,7 +26,7 @@ const PurchaseHistory = () => {
 
   useEffect(() => {
     db.collection("history")
-      .doc("user_id81")
+      .doc("user_id4")
       .get()
       .then((doc) => {
         if (doc) {
@@ -88,9 +88,9 @@ const PurchaseHistory = () => {
               color: "rgb(228, 228, 228)",
             }}
           />
-          <p>No purchase history. Keep shopping to find a course!</p>
+          <p>No purchase history.</p>
           <NavLink to="/">
-            <button>Keep shopping</button>
+            <button>Our courses</button>
           </NavLink>
         </main>
       )}

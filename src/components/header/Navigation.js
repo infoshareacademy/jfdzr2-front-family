@@ -30,7 +30,7 @@ export const Navigation = () => {
     <div className="header__nav__link__container">
       <NavLink to="/log-in">Log in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
-      <NavLink to="/history">Purchase history</NavLink>
+      <NavLink to="/history">Purchase History</NavLink>
       <CartViewPopper />
     </div>
   </nav>

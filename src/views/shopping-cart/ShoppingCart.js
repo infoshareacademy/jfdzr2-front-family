@@ -20,7 +20,7 @@ const handleOnCheckout = () => {
   firebase
     .firestore()
     .collection("history")
-    .doc("user_id81")
+    .doc("user_id4")
     .get()
     .then((doc) => {
       if (doc.exists)
@@ -28,7 +28,7 @@ const handleOnCheckout = () => {
           firebase
             .firestore()
             .collection("history")
-            .doc("user_id81")
+            .doc("user_id4")
             .update({
               historyList: firebase.firestore.FieldValue.arrayUnion(item),
             });
@@ -37,7 +37,7 @@ const handleOnCheckout = () => {
         firebase
           .firestore()
           .collection("history")
-          .doc("user_id81")
+          .doc("user_id4")
           .set({ historyList });
       }
     })
