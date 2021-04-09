@@ -23,8 +23,6 @@ const ShoppingCart = () => {
         ? (user_id = auth.currentUser.uid)
         : (user_id = "unregistered");
     }
-    console.log(user_id); 
-
 
 const historyList = courses.map((course) => course.title);
 

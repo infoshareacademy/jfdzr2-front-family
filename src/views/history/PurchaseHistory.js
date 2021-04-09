@@ -18,7 +18,6 @@ const PurchaseHistory = () => {
   {
     isLoggedIn ? (user_id = auth.currentUser.uid) : (user_id = "unregistered");
   }
-  console.log(user_id); 
 
   useEffect(() => {
     db.collection("courses")
