@@ -8,6 +8,7 @@ import { CourseDetails } from './views/course-details/CourseDetails';
 import ShoppingCart from './views/shopping-cart/ShoppingCart';
 import ScrollToTop from './components/ScrollToTop';
 import { SignUp } from './views/sign-up/SignUp';
+import { LogIn } from './views/log-in/LogIn';
 import { Auth } from './components/user/Auth';
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
                   !isLoggedIn
                       ? <Route path="/sign-up" component={SignUp} />
                       : <Redirect from="/sign-up" to="/" />
+                }
+                {
+                  !isLoggedIn
+                      ? <Route path="/log-in" component={LogIn} />
+                      : <Redirect from="/log-in" to="/" />
                 }
               </Switch>
               <Footer />
