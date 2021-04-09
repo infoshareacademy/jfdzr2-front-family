@@ -26,16 +26,6 @@ export const SignUp = () => {
 			})
   };
 
-  const handleOnFocus = (event) => {
-    event.preventDefault();
-    event.target.previousElementSibling.classList.add("signup__form__input--focus");
-  }
-
-  const handleOnMouseLeave = (event) => {
-    event.preventDefault();
-    event.target.previousElementSibling.classList.remove("signup__form__input--focus");
-  }
-
   return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form" method="POST">
     <h3>Sign up</h3>
     <label htmlFor="email">Email:</label>
@@ -46,9 +36,6 @@ export const SignUp = () => {
       name="email"
       placeholder="Enter email address"
       onChange={handleOnEmailChange}
-      onFocus={handleOnFocus}
-      onMouseEnter={handleOnFocus}
-      onMouseLeave={handleOnMouseLeave}
       required/>
     <label htmlFor="password">Password:</label>
     <input
@@ -58,9 +45,6 @@ export const SignUp = () => {
       name="password"
       placeholder="Enter password"
       onChange={handleOnPasswordChange}
-      onFocus={handleOnFocus}
-      onMouseEnter={handleOnFocus}
-      onMouseLeave={handleOnMouseLeave}
       required/>
     {error && <p className="error">{error}</p>}
     <button type="submit">Sign up</button>
