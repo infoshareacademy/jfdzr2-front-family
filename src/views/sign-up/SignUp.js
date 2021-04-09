@@ -26,7 +26,7 @@ export const SignUp = () => {
 			})
   };
 
-  return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form" method="POST">
+  return <form name="signUpForm" onSubmit={handleOnSubmit} className="signup__form">
     <h3>Sign up</h3>
     <label htmlFor="email">Email:</label>
     <input
