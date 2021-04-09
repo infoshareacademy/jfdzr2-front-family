@@ -1,7 +1,5 @@
 import "./CourseList.css";
 import CourseItem from "./CourseItem";
-import CheckboxesTopic from "../../components/sidebar/CheckboxesTopic"
-import { ControlCameraOutlined } from "@material-ui/icons";
 
 
 const CourseList = ({ courses, title, visibleCourses, isPending }) => {

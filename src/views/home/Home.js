@@ -29,8 +29,8 @@ const Home = () => {
     setVisibleCourses((previousValue) => previousValue + 4);
   };
 
-  const handleOnFilterChange = (filterText) => {
-    setFilter(filterText);
+  const handleOnFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
   const [level, setLevel] = useState({
@@ -206,11 +206,11 @@ const Home = () => {
     );
   }
 
-  if (rating == "highest") {
+  if (rating === "highest") {
     filteredCourses = filteredCourses.filter((course) => course.rating > 4.1);
   }
 
-  if (rating == "lowest") {
+  if (rating === "lowest") {
     filteredCourses = filteredCourses.filter((course) => course.rating < 4.1);
   }
 
@@ -263,7 +263,7 @@ const Home = () => {
 
   return (
     <>
-      <SearchBar onFilterChange={handleOnFilterChange} />
+      <SearchBar value={filter} onFilterChange={handleOnFilterChange} />
       <div className="home__wrapper">
         <div className="sidebar__wrapper">
           <div>
