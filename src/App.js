@@ -7,6 +7,7 @@ import { Footer } from "./components/footer/Footer";
 import { CourseDetails } from './views/course-details/CourseDetails';
 import ShoppingCart from './views/shopping-cart/ShoppingCart';
 import ScrollToTop from './components/ScrollToTop';
+import PurchaseHistory from './views/history/PurchaseHistory'
 import { SignUp } from './views/sign-up/SignUp';
 import { LogIn } from './views/log-in/LogIn';
 import { Auth } from './components/user/Auth';
@@ -24,6 +25,9 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/course-details/:id" component={CourseDetails} />
                 <Route path="/cart" component={ShoppingCart} />
+                {isLoggedIn &&
+                <Route path="/history" component={PurchaseHistory} />
+                }
                 {
                   !isLoggedIn
                       ? <Route path="/sign-up" component={SignUp} />

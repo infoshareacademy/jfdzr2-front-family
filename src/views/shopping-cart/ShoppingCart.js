@@ -2,15 +2,62 @@ import "./ShoppingCart.css";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { NavLink } from "react-router-dom";
 import { BsTrash }  from "react-icons/bs"; 
+import { auth } from '../../services/firebase-config';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { coursesInCartSelector, totalPriceOfCoursesInCartSelector } from "../../reducers/selectors";
 import { removeFromCart } from '../../reducers/shopping-cart';
 
+import firebase from 'firebase/app';
+
 const ShoppingCart = () => {
     const courses = useSelector(coursesInCartSelector);
     const totalPrice = useSelector(totalPriceOfCoursesInCartSelector);
     const dispatch = useDispatch();
+    
+    const isLoggedIn = useSelector(state => state.loggedIn);
+
+    let user_id;
+    {
+      isLoggedIn
+        ? (user_id = auth.currentUser.uid)
+        : (user_id = "unregistered");
+    }
+    console.log(user_id); 
+
+
+const historyList = courses.map((course) => course.title);
+
+const handleOnCheckout = () => {
+  firebase
+    .firestore()
+    .collection("history")
+    .doc(user_id)
+    .get()
+    .then((doc) => {
+      if (doc.exists)
+        historyList.map((item) => {
+          firebase
+            .firestore()
+            .collection("history")
+            .doc(user_id)
+            .update({
+              historyList: firebase.firestore.FieldValue.arrayUnion(item),
+            });
+        });
+      else {
+        firebase
+          .firestore()
+          .collection("history")
+          .doc(user_id)
+          .set({ historyList });
+      }
+    })
+    .catch((error) => {
+        console.log("Error getting document:", error)
+    })
+};
+
 
     return ( 
         <div className="cart__wrapper">
@@ -51,7 +98,7 @@ const ShoppingCart = () => {
                                 <p>Total:</p>
                                 <p className="cart__course__total__price">{totalPrice} PLN</p>
                             </div>
-                            <button>Checkout</button>
+                            <button onClick={handleOnCheckout}>Checkout</button>
                         </section>
                     </main>
                 ) :

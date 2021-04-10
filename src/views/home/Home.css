@@ -18,10 +18,10 @@
 }
 
 .clear__button {
-  padding: 5px 10px;
+  padding: 3px 6px;
   margin-bottom: 7px;
   border: 1px solid #f50057;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .clear__button:hover {

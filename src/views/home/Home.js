@@ -16,8 +16,21 @@ const Home = () => {
 
   const [countFilters, setCountFilters] = useState(0);
 
-  const handleOnFilterChange = (filterText) => {
-    setFilter(filterText);
+  useEffect(() => {
+    db.collection("courses")
+      .get()
+      .then((snapshot) => {
+        setCourses(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setIsPending(false);
+      });
+  }, []);
+
+  const handleShowMoreCourses = () => {
+    setVisibleCourses((previousValue) => previousValue + 4);
+  };
+
+  const handleOnFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
   const [level, setLevel] = useState({
@@ -81,40 +94,6 @@ const Home = () => {
     paid: false,
   });
 
-  const handleOnClearFilter = () => {
-    setPrice({
-      free: false,
-      paid: false,
-    });
-
-    setDuration({
-      oneToFive: false,
-      sixToTen: false,
-      elevenToFifteen: false,
-      aboveSixteen: false,
-    });
-
-    setLevel({
-      beginner: false,
-      intermediate: false,
-      expert: false,
-    });
-
-    setTopic({
-      business: false,
-      graphic: false,
-      languages: false,
-      programming: false,
-    });
-
-    setRating({
-      highest: false,
-      lowest: false,
-    });
-
-    setCountFilters(0);
-  };
-
   const handleOnPriceChange = (event) => {
     setPrice({ ...price, [event.target.name]: event.target.checked });
     if (event.target.checked) {
@@ -123,19 +102,6 @@ const Home = () => {
     if (!event.target.checked) {
       setCountFilters(countFilters - 1);
     }
-  };
-
-  useEffect(() => {
-    db.collection("courses")
-      .get()
-      .then((snapshot) => {
-        setCourses(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-        setIsPending(false);
-      });
-  }, []);
-
-  const handleShowMoreCourses = () => {
-    setVisibleCourses((previousValue) => previousValue + 4);
   };
 
   let filteredCourses = courses;
@@ -240,11 +206,11 @@ const Home = () => {
     );
   }
 
-  if (rating == "highest") {
+  if (rating === "highest") {
     filteredCourses = filteredCourses.filter((course) => course.rating > 4.1);
   }
 
-  if (rating == "lowest") {
+  if (rating === "lowest") {
     filteredCourses = filteredCourses.filter((course) => course.rating < 4.1);
   }
 
@@ -259,12 +225,45 @@ const Home = () => {
   filteredCourses = filteredCourses.filter((course) =>
     course.title.toLowerCase().includes(filter.toLowerCase())
   );
+  
 
-  let noCoursesFound = {};
+  const handleOnClearFilter = () => {
+    setPrice({
+      free: false,
+      paid: false,
+    });
+
+    setDuration({
+      oneToFive: false,
+      sixToTen: false,
+      elevenToFifteen: false,
+      aboveSixteen: false,
+    });
+
+    setLevel({
+      beginner: false,
+      intermediate: false,
+      expert: false,
+    });
+
+    setTopic({
+      business: false,
+      graphic: false,
+      languages: false,
+      programming: false,
+    });
+
+    setRating({
+      highest: false,
+      lowest: false,
+    });
+
+    setCountFilters(0);
+  };
 
   return (
     <>
-      <SearchBar onFilterChange={handleOnFilterChange} />
+      <SearchBar value={filter} onFilterChange={handleOnFilterChange} />
       <div className="home__wrapper">
         <div className="sidebar__wrapper">
           <div>
