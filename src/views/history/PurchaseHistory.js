@@ -3,7 +3,6 @@ import HistoryIcon from '@material-ui/icons/History';
 import { NavLink } from "react-router-dom";
 import { db } from '../../services/firebase-config';
 import { auth } from '../../services/firebase-config';
-// import { Redirect } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
