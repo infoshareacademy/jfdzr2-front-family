@@ -3,9 +3,12 @@ import HistoryIcon from '@material-ui/icons/History';
 import { NavLink } from "react-router-dom";
 import { db } from '../../services/firebase-config';
 import { auth } from '../../services/firebase-config';
+// import { Redirect } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
+
+
 
 const PurchaseHistory = () => {
   const [history, setHistory] = useState([]);
@@ -18,7 +21,7 @@ const PurchaseHistory = () => {
   {
     isLoggedIn ? (user_id = auth.currentUser.uid) : (user_id = "unregistered");
   }
-
+  
   useEffect(() => {
     db.collection("courses")
       .get()
@@ -52,6 +55,7 @@ const PurchaseHistory = () => {
     )
   }
 
+ 
   return (
     <div className="cart__wrapper">
       <h2>
