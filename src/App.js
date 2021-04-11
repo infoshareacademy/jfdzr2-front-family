@@ -25,8 +25,10 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/course-details/:id" component={CourseDetails} />
                 <Route path="/cart" component={ShoppingCart} />
-                {isLoggedIn &&
-                <Route path="/history" component={PurchaseHistory} />
+                {
+                  isLoggedIn 
+                    ? <Route path="/history" component={PurchaseHistory} />
+                    : <Redirect from="/history" to="/" />
                 }
                 {
                   !isLoggedIn

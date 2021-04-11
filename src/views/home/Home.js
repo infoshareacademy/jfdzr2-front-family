@@ -269,7 +269,7 @@ const Home = () => {
           <div>
             <Filter
               numberOfFilters={
-                rating == "highest" || rating == "lowest"
+                rating === "highest" || rating === "lowest"
                   ? countFilters + 1
                   : countFilters
               }

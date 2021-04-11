@@ -7,6 +7,8 @@ import { auth } from '../../services/firebase-config';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
 
+
+
 const PurchaseHistory = () => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,8 +20,7 @@ const PurchaseHistory = () => {
   {
     isLoggedIn ? (user_id = auth.currentUser.uid) : (user_id = "unregistered");
   }
-  console.log(user_id); 
-
+  
   useEffect(() => {
     db.collection("courses")
       .get()
@@ -53,6 +54,7 @@ const PurchaseHistory = () => {
     )
   }
 
+ 
   return (
     <div className="cart__wrapper">
       <h2>
