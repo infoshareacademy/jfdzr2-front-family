@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { db } from '../../services/firebase-config';
 import { auth } from '../../services/firebase-config';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from "react";
 
 
@@ -17,9 +17,9 @@ const PurchaseHistory = () => {
   const isLoggedIn = useSelector(state => state.loggedIn);
 
   let user_id;
-  {
-    isLoggedIn ? (user_id = auth.currentUser.uid) : (user_id = "unregistered");
-  }
+  
+  isLoggedIn ? (user_id = auth.currentUser.uid) : (user_id = "unregistered");
+  
   
   useEffect(() => {
     db.collection("courses")
@@ -46,7 +46,7 @@ const PurchaseHistory = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  }, []);
+  }, [user_id]);
 
   if(loading) {
     return(
@@ -65,7 +65,7 @@ const PurchaseHistory = () => {
         <main className="shopping__cart__container">
           <section className="shopping__cart__list">
             {history
-              .map((title) => courses.filter((course) => course.title == title))
+              .map((title) => courses.filter((course) => course.title === title))
               .flat()
               .map((course) => (
                 <article className="shopping__cart__list__item" key={course.id}>
