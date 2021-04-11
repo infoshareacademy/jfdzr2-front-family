@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Home from '../src/views/home/Home';
 import { Header } from "./components/header/Header";
@@ -26,7 +26,7 @@ function App() {
                 <Route path="/course-details/:id" component={CourseDetails} />
                 <Route path="/cart" component={ShoppingCart} />
                 {
-                  isLoggedIn 
+                  isLoggedIn
                     ? <Route path="/history" component={PurchaseHistory} />
                     : <Redirect from="/history" to="/" />
                 }
