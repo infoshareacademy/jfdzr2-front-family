@@ -17,11 +17,13 @@ This is a group project built by three trainee developers 👩‍🎓 💻 durin
 
 ⭐ ReactJS
 
+⭐ Redux
+
 ⭐ JavaScript
 
 ⭐ Firebase (Firestore, Authentication)
 
-⭐ Material UI
+⭐ Material-UI
 
 ## Features
 
@@ -54,4 +56,4 @@ You will also see any lint errors in the console.
 
 ## Live demo
 
-You can also click here [some link]() to see live demo.
+You can also click [Future Skills](https://infoshareacademy.github.io/jfdzr2-front-family/#/) to see live demo.
