@@ -94,11 +94,7 @@
     color: #edf2f4;
 }
 
-.course__details__link:hover > .course__info__price > .course__info__cart__btn {
-    display: block;
-}
-
-.course__details__link:hover > .course__info__price > .course__info__cart__btn--disabled {
+.course__details__link:hover > .course__info__price > .course__info__cart__btn, .course__details__link:hover > .course__info__price > .course__info__cart__btn--disabled {
     display: block;
 }
 
