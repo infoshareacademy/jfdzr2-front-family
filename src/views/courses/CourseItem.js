@@ -7,9 +7,10 @@ import { MdAddShoppingCart, MdShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { isCourseInCartSelector } from "../../reducers/selectors";
 import { addToCart } from "../../reducers/shopping-cart";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const CourseItem = ({ course }) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const isCourseInCart = useSelector(isCourseInCartSelector(course.id))
 
@@ -17,6 +18,12 @@ const CourseItem = ({ course }) => {
         event.stopPropagation();
         event.preventDefault();
         dispatch(addToCart(course))
+    }
+
+    const handleRedirect = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        history.push('/cart');
     }
 
     return (
@@ -52,13 +59,15 @@ const CourseItem = ({ course }) => {
                             <button 
                                 className="course__info__cart__btn" 
                                 title="Go to cart"
-                                >
-                                    <NavLink to="/cart">
-                                        <MdShoppingCart
-                                            className="cart_icon"
-                                        />
-                                    </NavLink>
-                                </button>
+                                onClick={handleRedirect}
+                            >
+                                <MdShoppingCart
+                                    style={{
+                                        paddingTop: "5px",
+                                        fontSize: "25px"
+                                    }}
+                                />
+                            </button>
                         ) :
                         (
                             <button 

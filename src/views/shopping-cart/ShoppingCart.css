@@ -96,7 +96,7 @@
     transition: transform 0.3s;  
 }
 
-.trash-icon:hover {
+.cart__price__checkout button:hover > .trash-icon {
     transform: rotate(360deg);
 }
 
